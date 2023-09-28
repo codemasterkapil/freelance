@@ -1,13 +1,12 @@
 .header{
-    width: 100vw;
+    width: 100%;
     padding: 14px;
 }
+
 .header_container{
-    /* border: 2px solid black; */
     width: 50%;
     margin: auto;
     display: flex;
-    /* border: 1px solid red; */
     justify-content: space-between;
     align-items: center;
 }
@@ -17,16 +16,23 @@
     font-weight: bolder;
 }
 
-.left, .right{
-    /* border: 1px solid black; */
-}
-
 .right ul{
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 .right ul li{
     padding-left: 20px;
     font-size: 0.8rem;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_img{
+    width: 32px;
 }

@@ -12,7 +12,7 @@ const Subject = (props) => {
                     <p className="type">Interaction score</p>
                     <p className="score">0.7</p>
                 </div>
-                <div className="quiz">
+                <div className="quiz_score">
                     <p className="type">Quiz score avergae</p>
                     <p className="score">85%</p>
                 </div>
