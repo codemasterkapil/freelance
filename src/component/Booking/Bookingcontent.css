@@ -1,0 +1,26 @@
+.Bookingcontent_left{
+   width:50%;
+   background-color: rgb(169, 210, 237);
+   height:400px;
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner{
+    /* width:50%; */
+    padding:10px 200px;
+    word-wrap: break-word;
+}
+
+.Bookingcontent_heading{
+    font-size: 2rem;
+    font-family: 'Space Mono', monospace,'Space Grotesk', sans-serif;
+    padding-bottom: 20px;
+}
+
+.description{
+    font-size: 0.8rem;
+    padding-top: 10px;
+}
