@@ -1,0 +1,38 @@
+.header{
+    width: 100%;
+    padding: 14px;
+}
+
+.header_container{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left p{
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.right ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.right ul li{
+    padding-left: 20px;
+    font-size: 0.8rem;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_img{
+    width: 32px;
+}

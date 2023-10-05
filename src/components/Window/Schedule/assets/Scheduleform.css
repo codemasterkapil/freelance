@@ -1,0 +1,44 @@
+.Bookingform_right{
+    background-color: rgba(221, 223, 210, 0.333);
+    width:50%;
+    border-left:2px solid black;
+}
+
+.form-group{
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+}
+
+.form{
+    padding:10px 150px;
+}
+
+.input{
+    width:150px;
+    padding:4px 4px;
+}
+
+.label{
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+#focusInput{
+    width: 351px;
+    height:50px;
+    padding:2px 4px;
+}
+
+.submitbutton{
+    background-color: rgb(32, 108, 38);
+    color:white;
+    cursor: pointer; 
+    padding: 4px 30px; 
+    margin-top: 15px;
+    margin-left:25px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+}

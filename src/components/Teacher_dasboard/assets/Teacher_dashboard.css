@@ -1,0 +1,45 @@
+.teacher_dashboard_container{
+    background-color: rgb(198, 239, 198);
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.teacher_dashboard{
+    width: 90%;
+    background-color: white;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 30px;
+    margin-top: 15px;
+}
+
+.course_container{
+    border: 1px solid black;
+    width: 320px;
+    padding: 4px;
+}
+
+.add_button{
+    width: 100%;
+    /* border: 2px solid red; */
+    position: relative;
+    height: 35px;
+}
+.add_button button{
+    padding: 5px 10px;
+    /* float: right; */
+    position: absolute;
+    right: 7px;
+}
+
+.add_button button:hover{
+    cursor: pointer;   
+}
+
+.course{
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: wrap;
+    justify-content: space-around;
+}

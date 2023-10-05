@@ -1,0 +1,103 @@
+.dashboard{
+    width: 100%;
+    padding: 20px;
+    background-color: #b9eaea;
+}
+
+.dashboard_container_oustside{
+    padding-top: 1px;
+    padding-bottom: 4px;
+    background-color: rgb(214 233 239);
+}
+
+.dashboard_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 15px 0px;
+}
+
+.dashboard_left{
+    display: flex;
+    width: 45%;
+    /* border: 2px solid red; */
+}
+
+.filter{
+    /* border: 2px solid black; */
+    width: 160px;
+    padding: 10px;
+}
+
+.filter p{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-weight: bolder;
+}
+.search{
+    width: 140px;
+    padding: 5px;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    padding: 2px 2px;
+}
+.checkbox p{
+    font-weight: lighter;
+    padding: 0px 2px;
+}
+
+
+.dashboard_right_container{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard_right{
+    padding: 15px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.dashboard_right_container button{
+    width: 160px;
+    margin-top: 40px;
+    border: none;
+    border-radius: 100px;
+    padding: 8px;
+    background-color: rgb(31, 101, 31);
+    color: white;
+}
+
+.filter button{
+    width: 130px;
+    margin-top: 40px;
+    border: none;
+    border-radius: 100px;
+    padding: 8px;
+    background-color: rgb(31, 101, 31);
+    color: white;
+}
+
+.dashboard_right_container button:hover, .filter button:hover{
+    cursor: pointer;
+}
+
+.dashboard_right::-webkit-scrollbar {
+    display: none;
+}
+
+.dashboard_right {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  

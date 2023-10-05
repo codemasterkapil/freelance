@@ -1,0 +1,68 @@
+.quiz_body{
+    height: 100vh;
+}
+.quiz-container{
+    background-color: rgb(175, 241, 131);
+    width:100%;
+    padding: 20px 0px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    /* flex: 1; */
+ } 
+ 
+ .Quiz-innercontainer{
+    background-color: white;
+    width:60%;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .quiz-pdf{
+   width:70%;
+   background-color: white;
+   padding:30px;
+ }
+ 
+ .questionnaire-container {
+     width: 90%;
+     margin: 0 auto;
+     max-height: 90%; 
+     overflow-y: auto; 
+     border: 1px solid #ccc;
+     padding: 10px 20px;
+     border-radius: 5px;
+   }
+   
+   .question {
+     margin-bottom: 20px;
+   }
+   
+   .options {
+     display: flex;
+     flex-direction: column;
+   }
+   
+   label {
+     margin-bottom: 10px;
+   }
+   .Quiz-header{
+     text-align: center;
+   }
+ 
+   .question-list-p{
+     font-weight:bold;
+   }
+ 
+   .questionnaire-container-btn{
+     border-radius: 100px;
+     background-color: rgb(239, 190, 54);
+     border:none;
+     padding:5px 20px;
+     float:right;
+   }

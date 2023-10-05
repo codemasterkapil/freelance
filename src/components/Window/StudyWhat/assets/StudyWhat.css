@@ -1,0 +1,83 @@
+.StudyWhat_container_outer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #00000085;
+    backdrop-filter: blur(10px);
+}
+.StudyWhat_container{
+    width: 80%;
+    background-color: rgb(144, 232, 144);
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    padding: 40px 0px;
+}
+.StudyWhat{
+    width: 70%;
+    background-color: white;
+    padding: 40px 30px;
+}
+
+.StudyWhat_heading{
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.material_type{
+  padding:20px 10px;
+  font-size: 0.8rem;
+}
+
+.material_type_heading{
+    padding-bottom: 5px;
+}
+
+.radio1{
+   display:flex;
+   align-items: center;
+}
+
+.radio-par{
+    margin-left:10px;
+}
+.select_subject{
+    display:flex;
+    align-items:center;
+    padding-left: 10px;
+}
+
+.dd1{
+    padding-right: 40px;
+}
+
+.button_container{
+    float: right;
+    padding-top: 20px;
+}
+
+.submitbutton{
+    padding: 5px 20px;
+    border: none;
+    background-color: green;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitbutton p{
+    color: white;
+}
+.submitbutton:hover{
+    cursor: pointer;
+    background-color: rgb(1, 62, 1);
+}
+.arrow{
+    color: white;
+}

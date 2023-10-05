@@ -1,0 +1,14 @@
+.dropdown-container{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+}
+.dropdown_type{
+    font-size: 0.6rem;
+}
+
+.dropdown{
+    padding: 7px;
+    border-radius: 3px;
+    width: fit-content;
+}
