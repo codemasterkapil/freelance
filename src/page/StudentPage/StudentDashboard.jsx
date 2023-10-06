@@ -3,7 +3,7 @@ import Subject from "../../components/StudentDashboard/Subject.jsx"
 import Calender from "../../components/Calender/Calender";
 import { useState } from "react";
 
-const StudentDashboard = ({ handle_StudyWhatVisible }) => {
+const StudentDashboard = ({ handle_ScheduleVisible, handle_StudyWhatVisible }) => {
 
     const [check, setCheck] = useState(false);
     const [birthday, setBirthday] = useState(false);
@@ -56,7 +56,7 @@ const StudentDashboard = ({ handle_StudyWhatVisible }) => {
                             </div>
 
                             <button onClick={() => {
-                                handle_StudyWhatVisible(true);
+                                handle_ScheduleVisible(true);
                             }}>
                                 Schedule block {">"}
                             </button>

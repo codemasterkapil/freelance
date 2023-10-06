@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import './assets/Scheduleform.css'
 import { AiOutlineRight } from 'react-icons/ai';
 
-const Scheduleform = () => {
+const Scheduleform = ({schedule_booked}) => {
 
   const [classValue, setClassValue] = useState('');
   const [timeValue, setTimeValue] = useState('');
@@ -13,7 +13,7 @@ const Scheduleform = () => {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    
+    schedule_booked()
   }
 
   return (
