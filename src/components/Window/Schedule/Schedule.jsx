@@ -2,12 +2,16 @@ import React from 'react'
 import Bookingcontent from './Schedulecontent'
 import Bookingform from './Scheduleform'
 import './assets/Schedule.css';
+import Cross from '../../Cross/Cross';
 
-const Schedule = () => {
+const Schedule = ({handle_ScheduleVisible}) => {
   return (
-    <div className='component'>
-        <Bookingcontent></Bookingcontent>
-        <Bookingform></Bookingform>      
+    <div className="compnent_container">
+      <Cross window_cut={handle_ScheduleVisible}/>
+      <div className='component'>
+          <Bookingcontent></Bookingcontent>
+          <Bookingform></Bookingform>      
+      </div>
     </div>
   )
 }

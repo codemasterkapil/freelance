@@ -1,4 +1,16 @@
+.compnent_container{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #00000059;
+    padding: 0px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
 .component{
     display:flex;
-   
 }

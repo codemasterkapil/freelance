@@ -20,7 +20,7 @@ const Teacher = () => {
     return(
         <div className="teacher">
             <Teacher_header />
-            <Teacher_dashboard handle_AddcourseVisible={handle_AddcourseVisible}/>
+            <Teacher_dashboard handle_ScheduleTestVisible={handle_ScheduleTestVisible} handle_AddcourseVisible={handle_AddcourseVisible}/>
             {AddcourseVisible && <AddCourse handle_AddcourseVisible={handle_AddcourseVisible}/>}
             {ScheduleTestVisible && <ScheduleTest handle_ScheduleTestVisible={handle_ScheduleTestVisible}/>}
             <Footer />
