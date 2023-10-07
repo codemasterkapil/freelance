@@ -11,12 +11,12 @@
     backdrop-filter: blur(10px);
 }
 .StudyWhat_container{
-    width: 80%;
+    width: 90%;
     background-color: rgb(144, 232, 144);
     display:flex;
     justify-content: center;
     align-items:center;
-    padding: 40px 0px;
+    padding: 80px 0px;
 }
 .StudyWhat{
     width: 70%;
@@ -25,7 +25,7 @@
 }
 
 .StudyWhat_heading{
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bolder;
 }
 
@@ -35,12 +35,13 @@
 }
 
 .material_type_heading{
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 .radio1{
    display:flex;
    align-items: center;
+   padding-bottom: 10px;
 }
 
 .radio-par{
@@ -49,11 +50,14 @@
 .select_subject{
     display:flex;
     align-items:center;
+    justify-content: space-between;
     padding-left: 10px;
+    /* border: 1px solid red; */
 }
 
 .dd1{
-    padding-right: 40px;
+    /* padding-right: 40px; */
+    width: 30%;
 }
 
 .button_container{
@@ -62,7 +66,6 @@
 }
 
 .submitbutton{
-    padding: 5px 20px;
     border: none;
     background-color: green;
     border-radius: 100px;
@@ -73,6 +76,8 @@
 
 .submitbutton p{
     color: white;
+    padding: 5px 10px;
+    font-size: 1rem;
 }
 .submitbutton:hover{
     cursor: pointer;

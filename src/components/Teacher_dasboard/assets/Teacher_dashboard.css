@@ -5,19 +5,44 @@
 }
 
 .teacher_dashboard{
-    width: 90%;
+    width: 98%;
     background-color: white;
     margin: auto;
     display: flex;
     justify-content: space-between;
-    padding: 50px 30px;
+    padding: 10px 60px;
     margin-top: 15px;
+}
+
+.calender_parent_container{
+    width: 50%;
+}
+
+.schedule_test_button{
+    width: 100%;
+    /* border: 1px solid red; */
+    position: relative;
+    /* float: right; */
+    height: 23px;
+}
+.schedule_test_button button{
+    /* float: right; */
+    position: absolute;
+    right: 0px;
+    top: -6px;
+    padding: 3px;
+}
+
+.calender_parent{
+    display: flex;
+    justify-content: space-between;
 }
 
 .course_container{
     border: 1px solid black;
-    width: 320px;
+    width: 30%;
     padding: 4px;
+    height: fit-content;
 }
 
 .add_button{

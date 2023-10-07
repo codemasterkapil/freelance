@@ -24,8 +24,8 @@ const StudyHow = ({handle_StudyHowVisible}) => {
                         <div className="quiz">
                             <p className="studyhow_type">Do a multiple choice question</p>
                             <p className="desc">Fun fact : Doing a multiple choice question leverages a powerful learning technique known as retrievel practice</p>
-                            <Link to="/quiz" styles={{textDecoration:"none"}}>
-                                <button>Quiz me!</button>  
+                            <Link to="/quiz" style={{textDecoration:"none", width: "100%", display: "flex", justifyContent: "center", alignItems: "center"}}>
+                                <button className="studyHow_button">Quiz me!</button>  
                            </Link>
                             
                         </div>
@@ -34,7 +34,9 @@ const StudyHow = ({handle_StudyHowVisible}) => {
                         <div className="notes">
                             <p className="studyhow_type">Review lesson summary</p>
                             <p className="desc">Fun fact : Reviewing condensed class notes after the class boots memory retention and long term understanding</p>
-                            <button>Lesson summary</button>
+                            <Link to="/quiz" style={{textDecoration:"none", width: "100%", display: "flex", justifyContent: "center", alignItems: "center"}}>
+                                <button>Lesson summary</button>  
+                           </Link>
                         </div>
                     </div>
                 </div>

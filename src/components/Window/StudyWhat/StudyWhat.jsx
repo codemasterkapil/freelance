@@ -26,7 +26,7 @@ const StudyWhat = ({handle_StudyWhatVisible, handle_StudyHowVisible}) => {
                 checked={radioValue === "past"}
                 onChange={() => setRadioValue("past")}
               />
-              <p className='radio-par'>past</p>
+              <p className='radio-par'>Past Lesson</p>
             </div>
             <div className="radio1">
               <input
@@ -34,7 +34,7 @@ const StudyWhat = ({handle_StudyWhatVisible, handle_StudyHowVisible}) => {
                 checked={radioValue === "new"}
                 onChange={() => setRadioValue("new")}
               />
-              <p className='radio-par'>new</p>
+              <p className='radio-par'>New Lesson</p>
             </div>
 
           </div>

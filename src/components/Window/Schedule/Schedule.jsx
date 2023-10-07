@@ -6,6 +6,7 @@ import Bookingcontent from './Schedulecontent'
 import Bookingform from './Scheduleform'
 import './assets/Schedule.css';
 import Cross from '../../Cross/Cross';
+<<<<<<< HEAD
 
 const Schedule = ({ handle_ScheduleVisible }) => {
 
@@ -34,6 +35,16 @@ const Schedule = ({ handle_ScheduleVisible }) => {
         }
         <Bookingcontent></Bookingcontent>
         <Bookingform schedule_booked={schedule_booked}></Bookingform>
+=======
+
+const Schedule = ({handle_ScheduleVisible}) => {
+  return (
+    <div className="compnent_container">
+      <Cross window_cut={handle_ScheduleVisible}/>
+      <div className='component'>
+          <Bookingcontent></Bookingcontent>
+          <Bookingform></Bookingform>      
+>>>>>>> 5a8f7647acd59d4a80555c3d64e9076dfa1bbd01
       </div>
     </div>
   )

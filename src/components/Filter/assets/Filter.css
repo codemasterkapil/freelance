@@ -1,0 +1,25 @@
+.filter{
+    /* border: 2px solid black; */
+    width: 160px;
+    padding: 10px;
+}
+
+.filter p{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-weight: bolder;
+}
+.search{
+    width: 140px;
+    padding: 5px;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    padding: 2px 2px;
+}
+.checkbox p{
+    font-weight: lighter;
+    padding: 0px 2px;
+}
