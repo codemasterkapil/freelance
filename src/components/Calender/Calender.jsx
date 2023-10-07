@@ -23,14 +23,14 @@ const Calender = () => {
 
   let date_today = new Date();
   let firstDay = new Date(date_today.getFullYear(), date_today.getMonth(), 1);    
-  const blank_days = Array.from({ length: firstDay.getDay() }, (_, index) => index + 1);
+  const blank_days1 = Array.from({ length: firstDay.getDay() }, (_, index) => index + 1);
   const main_days = Array.from({ length: new Date(date_today.getFullYear(), date_today.getMonth(), 0).getDate()}, (_, index) => index + 1);
+  const blank_days2 = Array.from({ length: (35 - main_days.length - blank_days1.length) }, (_, index) => index + 1);
+
+  console.log(blank_days2)
 
 
   const event_array = [["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["Hey man i am here", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], [], [], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"]] 
-
-
-  const color = ["#fa675c", "#edfa5c", "#4fe84f", "#4fe8de", "#db4dc4"]
 
   const day = (date) => {
     return (
@@ -39,9 +39,6 @@ const Calender = () => {
         onMouseOver={() => {
             setTodayEvent(event_array[date-1]);
             setTodayEventVis(true);
-            // console.log(events[0]);
-
-            // console.log(events);
 
             if(eventref.current !== null){
               eventref.current.style.left = mousePos.x + 20 + "px";
@@ -53,14 +50,15 @@ const Calender = () => {
         }}
       >
         <p className="date">{date}</p>
+        <div className="show_events">
+          <ul>
+            {event_array[date-1].map((curr_event) => {
+              return <li>{curr_event}</li>
+            })}
+          </ul>
+        </div>
 
-        <p 
-          className="event_count"
-          style={{"background-color" : (event_array[date-1].length > 0) ? "#047d0a": "white", "color" : (event_array[date-1].length > 0) ? "white" : "black"}}
-        >
-          Schdule event : {event_array[date-1].length}
-        </p>
-
+        
       </div>
     );
   }
@@ -78,14 +76,20 @@ const Calender = () => {
         <div className="day day_name">Sat</div>
 
         {
-          blank_days.map((number) => {
-            return <div></div>
+          blank_days1.map(() => {
+            return <div className="day"></div>
           })
         }
 
         {
           main_days.map((number) => {
             return day(number, event_array[number-1]);
+          })
+        }
+
+        {
+          blank_days2.map(() => {
+            return <div className="day"></div>
           })
         }
 

@@ -1,32 +1,9 @@
 .subject{
-    width: 140px;
-    padding: 5px;
+    width: 100%;
     background-color: orange;
     margin-bottom: 10px;
-}
-
-.subject p{
-    text-align: center;
-    margin-bottom: 4px;
-}
-
-.subject_name{
-    font-weight: bold;
-}
-
-.teacher_name{
-    font-size: 0.7rem;
-}
-
-.detail{
     display: flex;
-    padding-top: 5px;
-}
-
-.type{
-    font-size: 0.7rem;
-}
-
-.score{
-    font-weight: bolder;
+    justify-content: space-between;
+    padding: 5px;
+    height: fit-content;
 }

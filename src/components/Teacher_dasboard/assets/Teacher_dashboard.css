@@ -2,6 +2,9 @@
     background-color: rgb(198, 239, 198);
     padding-top: 10px;
     padding-bottom: 20px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .teacher_dashboard{
@@ -10,12 +13,16 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 60px;
     margin-top: 15px;
+    flex: 1;
 }
 
 .calender_parent_container{
-    width: 50%;
+    width: 60%;
+    height: 100%;
+    /* border: 1px solid red; */
 }
 
 .schedule_test_button{
@@ -36,12 +43,14 @@
 .calender_parent{
     display: flex;
     justify-content: space-between;
+    /* border: 1px solid black; */
+    height: 90%;
 }
 
 .course_container{
     border: 1px solid black;
-    width: 30%;
-    padding: 4px;
+    width: 35%;
+    padding: 10px;
     height: fit-content;
 }
 
@@ -64,7 +73,4 @@
 
 .course{
     padding: 10px 0px;
-    display: flex;
-    flex-direction: wrap;
-    justify-content: space-around;
 }

@@ -5,8 +5,7 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 400px;
-  height: 310px;
-  gap: 1px;
+  height: 100%;
   margin: 0 auto;
   grid-template-rows: 30px auto;
   width: 100%;
@@ -14,9 +13,18 @@
 
 .day {
   border: 0.1px solid rgb(192, 189, 189);
-  /* color: white; */
-  overflow: hidden;
-  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.show_events{
+  /* border: 1px solid red; */
+  height: 60px;
+  width: 100%;
+  padding: 15px;
+  font-size: 0.5rem;
+  overflow-y: scroll;
 }
 
 .day_name {

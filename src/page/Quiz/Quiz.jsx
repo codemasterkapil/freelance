@@ -1,67 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../../components/Quiz/assets/Quiz.css';
 import Header from '../StudentPage/StudentHeader';
 import Footer from '../StudentPage/Footer';
+import axios from 'axios';
+import Reason from './Reason';
+import Ticked from './Ticked';
+
 
 const Quiz = () => {
 
-    const questions = [
-        {
-            id: 1,
-            questionText: 'What is the chemical symbol for oxygen?',
-            options: ['O', 'O2', 'O3', 'Ox'],
-        },
-        {
-            id: 2,
-            questionText: 'Which gas is known as laughing gas?',
-            options: ['Oxygen', 'Nitrogen', 'Nitrous oxide', 'Carbon dioxide'],
-        },
-        {
-            id: 3,
-            questionText: 'What is the atomic number of carbon?',
-            options: ['6', '12', '14', '16'],
-        },
-        {
-            id: 4,
-            questionText: 'Which element is the most abundant in the Earth\'s crust?',
-            options: ['Oxygen', 'Silicon', 'Carbon', 'Aluminum'],
-        },
-        {
-            id: 5,
-            questionText: 'What is the chemical formula for water?',
-            options: ['H2O2', 'H2O', 'HO', 'H3O'],
-        },
-        {
-            id: 6,
-            questionText: 'What is the process of converting a solid directly into a gas called?',
-            options: ['Melting', 'Vaporization', 'Sublimation', 'Evaporation'],
-        },
-        {
-            id: 7,
-            questionText: 'Which gas is responsible for the greenhouse effect?',
-            options: ['Oxygen', 'Methane', 'Nitrogen', 'Carbon dioxide'],
-        },
-        {
-            id: 8,
-            questionText: 'What is the chemical name for table salt?',
-            options: ['Sodium chloride', 'Potassium chloride', 'Calcium chloride', 'Magnesium chloride'],
-        },
-        {
-            id: 9,
-            questionText: 'What is the pH value of a neutral solution?',
-            options: ['0', '7', '14', '1'],
-        },
-        {
-            id: 10,
-            questionText: 'Which gas gives soda its fizz?',
-            options: ['Oxygen', 'Carbon dioxide', 'Nitrogen', 'Hydrogen'],
-        },
-
-    ];
-
-
+    const [questions, setQuestions] = useState([]);
+    const [total, setTotal] = useState();
+    const [answer, setAnswer] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState({});
     const [submitted, setSubmitted] = useState(false);
+
+    useEffect(() => {
+        const get_data = async () => {
+            try {
+                const response = await axios.get('https://portal-9bua.onrender.com/quizinit');
+                setQuestions(response.data.responseObbject.qsets);
+                setTotal(response.data.responseObbject.results);
+            } catch (error) {
+                console.log('error while fetching quiz questions');
+            }
+        };
+
+        get_data();
+    }, []);
+
 
     const handleOptionChange = (questionId, option) => {
         setSelectedOptions((prevSelectedOptions) => ({
@@ -70,9 +37,43 @@ const Quiz = () => {
         }));
     };
 
-    const handleSubmit = () => {
-        console.log(selectedOptions);
-        setSubmitted(true);
+    const handleSubmit = async () => {
+
+        try {
+            const response = await axios.get('https://portal-9bua.onrender.com/quizres');
+            setAnswer(response.data.responseObject.asets);
+            console.log(selectedOptions);
+            setSubmitted(true);
+
+            const transformedData = {};
+
+
+            response.data.responseObject.asets.forEach((asset) => {
+                const questionId = asset.questionId;
+
+
+                transformedData[questionId] = {
+                    verdict: asset.verdict
+                };
+
+
+                for (const key in asset.options) {
+                    if (asset.options.hasOwnProperty(key)) {
+                        const option = asset.options[key];
+                        transformedData[questionId][key] = option;
+                    }
+                }
+            });
+
+            //console.log(transformedData);
+            setAnswer(transformedData);
+
+
+
+        } catch (error) {
+            console.log('error while fetching quiz answers');
+        }
+
     };
 
     return (
@@ -82,26 +83,31 @@ const Quiz = () => {
 
             <div className='quiz-container'>
                 <div className="Quiz-innercontainer">
-                    <p >Multiple Choice Quiz</p>
+                    <p>Multiple Choice Quiz</p>
                 </div>
                 <div className="quiz-pdf">
                     <div className="questionnaire-container">
-                        <h2 className='Quiz-header'>Below attempt the 10 question quiz. Good Luck!</h2>
+                        <h2 className='Quiz-header'>Below attempt the {total} questions quiz. Good Luck!</h2>
                         <div className="question-list">
-                            {questions.map((question) => (
-                                <div key={question.id} className="question">
-                                    <p className='question-list-p'>{question.id} {question.questionText} *</p>
+                            {questions.map((question, val) => (
+                                <div key={question.questionId} className="question">
+                                    <div className="question_container">
+                                        {submitted && <Ticked con={answer[question.questionId].verdict} />}
+                                        <p className='question-list-p'>{val + 1}. {question.question} *</p>
+                                    </div>
+                                   
                                     <div className="options">
-                                        {question.options.map((option) => (
-                                            <label className='label' key={option}>
+                                        {Object.entries(question.options).map(([optionKey, optionValue]) => (
+                                            <label className='label' key={optionKey}>
                                                 <input
                                                     type="radio"
-                                                    name={`question${question.id}`}
-                                                    value={option}
-                                                    checked={selectedOptions[question.id] === option}
-                                                    onChange={() => handleOptionChange(question.id, option)}
+                                                    name={`question${question.questionId}`}
+                                                    value={optionKey}
+                                                    checked={selectedOptions[question.questionId] === optionKey}
+                                                    onChange={() => handleOptionChange(question.questionId, optionKey)}
                                                 />
-                                                {option}
+                                                {optionValue}
+                                                {submitted && <Reason option={answer[question.questionId][optionKey]} />}
                                             </label>
                                         ))}
                                     </div>
@@ -109,7 +115,6 @@ const Quiz = () => {
                             ))}
                         </div>
                         <button className='questionnaire-container-btn' onClick={handleSubmit}>Grade Quiz</button>
-                        
                     </div>
                 </div>
             </div>

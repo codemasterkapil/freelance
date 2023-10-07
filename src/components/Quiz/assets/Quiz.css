@@ -1,6 +1,10 @@
 .quiz_body{
     height: 100vh;
 }
+.question_container{
+  display: flex;
+}
+
 .quiz-container{
     background-color: rgb(175, 241, 131);
     width:100%;
