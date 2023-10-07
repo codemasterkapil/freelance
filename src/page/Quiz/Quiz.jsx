@@ -93,7 +93,7 @@ const Quiz = () => {
                                     <p className='question-list-p'>{question.id} {question.questionText} *</p>
                                     <div className="options">
                                         {question.options.map((option) => (
-                                            <label key={option}>
+                                            <label className='label' key={option}>
                                                 <input
                                                     type="radio"
                                                     name={`question${question.id}`}

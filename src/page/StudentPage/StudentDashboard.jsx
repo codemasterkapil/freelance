@@ -4,7 +4,7 @@ import Calender from "../../components/Calender/Calender";
 import Filter from "../../components/Filter/Filter";
 import { useState } from "react";
 
-const StudentDashboard = ({ handle_ScheduleVisible, handle_StudyWhatVisible }) => {
+const StudentDashboard = ({ handle_ScheduleVisible, handle_StudyWhatVisible, student_data }) => {
     return (
         <div className="dashboard_container_oustside">
             <div className="dashboard">
@@ -15,10 +15,11 @@ const StudentDashboard = ({ handle_ScheduleVisible, handle_StudyWhatVisible }) =
                     </div>
                     <div className="dashboard_right_container">
                         <div className="dashboard_right">
-                            <Subject />
-                            <Subject />
-                            <Subject />
-                            <Subject />
+                            {student_data && 
+                                student_data.responseObject.courses.map((course) => {
+                                    return <Subject course_data={course}/>
+                                })
+                            }
                         </div>
                         <button onClick={() => {
                             handle_StudyWhatVisible(true);

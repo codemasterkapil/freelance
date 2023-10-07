@@ -3,9 +3,9 @@ import FormDesc from "../../FormDesc/FormDesc";
 import Cross from "../../Cross/Cross";
 
 
-const ScheduleTest = ({handle_ScheduleTestVisible}) => {
+const ScheduleTest = ({ScheduleTestVisible,handle_ScheduleTestVisible}) => {
     return (
-        <div className="schedule_test_container">
+        <div  className='schedule_test_container'>
 
             <Cross window_cut={handle_ScheduleTestVisible}/>
 

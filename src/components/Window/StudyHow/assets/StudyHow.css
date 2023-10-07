@@ -12,16 +12,17 @@
 }
 
 .studyhow_container{
-    width: 80%;
+    width: 90%;
     position: relative;
     opacity: 1;
+    height: 70vh;
 }
 
 .heading{
     position: absolute;
     background-color: white;
-    top: 16px;
-    padding: 15px;
+    top: 50px;
+    padding: 20px 15px;
     width: 60%;
     text-align: center;
     font-size: 1.2rem;
@@ -30,17 +31,20 @@
 
 .studyhow{
     display: flex;
+    height: 100%;
 }
 
 .quiz_container{
     width: 50%;
     background-color: #bdda8b;
-    padding-top: 100px;
-    padding-bottom: 30px;
+    display: flex;
+    padding-top: 40px;
+    justify-content: center;
+    align-items: center;
 }
 .quiz{
-    width: 45%;
-    padding: 10px;
+    width: 60%;
+    padding: 20px;
     margin: auto;
     background-color: white;
     display: flex;
@@ -48,20 +52,24 @@
     align-items: center;
     justify-content: center;
 }
+
 .quiz button{
     background-color: #a2ff00b0;
     font-weight: bolder;
+    padding: 5px 10px;
 }
 
 .notes_container{
     width: 50%;
     background-color: #7ab17a;
-    padding-top: 100px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .notes{
-    padding: 10px;
-    width: 45%;
+    padding: 20px;
+    width: 60%;
     background-color: white;
     margin: auto;
     display: flex;
@@ -78,22 +86,20 @@
     text-align: center;
     font-weight: bold;
     padding-bottom: 10px;
+    font-size: 1.3rem;
 }
 
 .desc{
-    font-size: 0.8rem;
+    font-size: 1rem;
     width: 80%;
-}
-
-
-.studyhow Link{
-    width: 80%;
+    text-align: center;
 }
 
 .studyhow button{
     margin-top: 20px;
     border-radius: 100px;
     border: none;
+    width: 60%;
     padding: 10px;
 }
 

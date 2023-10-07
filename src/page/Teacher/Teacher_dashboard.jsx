@@ -1,10 +1,10 @@
 import Teacher_greet from "../../components/Teacher_dasboard/Teacher_greet";
 import "../../components/Teacher_dasboard/assets/Teacher_dashboard.css"
-import Subject from "../../components/StudentDashboard/Subject";
+import Teacher_subject from "../../components/Teacher_dasboard/Teacher_subject";
 import Calender from "../../components/Calender/Calender";
 import Filter from "../../components/Filter/Filter";
 
-const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible }) => {
+const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible, teacher_data }) => {
     return (
         <div className="teacher_dashboard_container">
             <Teacher_greet />
@@ -28,8 +28,7 @@ const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible
                         <button onClick={() => handle_AddcourseVisible(true)}>Add course +</button>
                     </div>
                     <div className="course">
-                        <Subject />
-                        <Subject />
+                        {teacher_data && <Teacher_subject course_data={teacher_data.responseObject}/>}
                     </div>
                 </div>
             </div>
