@@ -42,8 +42,8 @@ const Calender = ({handle_popup, type}) => {
             setTodayEventVis(true);
 
             if(eventref.current !== null){
-              eventref.current.style.left = mousePos.x + 20 + "px";
-              eventref.current.style.top = mousePos.y + 20 + "px";
+              eventref.current.style.left = mousePos.x -6 + "px";
+              eventref.current.style.top = mousePos.y -130 + "px";
             }
         }}
         onMouseOut={() => {

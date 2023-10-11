@@ -8,6 +8,7 @@ import { useState,useEffect } from "react";
 import axios from 'axios'
 import Loader from "../../components/Loader/Loder";
 import PdfUpload from "../../components/PdfUpload/PdfUpload";
+import ReviewPdf from '../../components/Window/ReviewPdf/ReviewPdf.jsx';
 
 const Teacher = () => {
 
@@ -34,14 +35,25 @@ const Teacher = () => {
         setScheduleTestVisible(val)
     }
 
+    const [ReviewPdfVisible, setReviewPdfVisible] = useState(false);
+    const handle_ReviewPdfVisible = (val) => {
+        setReviewPdfVisible(val)
+    }
+
+    const [PdfUploadVisible, setPdfUploadVisible] = useState(false);
+    const handle_PdfUploadVisible = (val) => {
+        setPdfUploadVisible(val)
+    }
+
     return(
         <div className="teacher">
             {!dataFetch && <Loader text={"Please wait"}/>}
-            {/* <PdfUpload /> */}
             <Teacher_header />
-            <Teacher_dashboard handle_ScheduleTestVisible={handle_ScheduleTestVisible} handle_AddcourseVisible={handle_AddcourseVisible} teacher_data={data}/>
+            <Teacher_dashboard handle_ScheduleTestVisible={handle_ScheduleTestVisible} handle_AddcourseVisible={handle_AddcourseVisible} teacher_data={data} handle_ReviewPdfVisible={handle_ReviewPdfVisible}/>
             {AddcourseVisible && <AddCourse handle_AddcourseVisible={handle_AddcourseVisible}/>}
             {ScheduleTestVisible && <ScheduleTest ScheduleTestVisible={ScheduleTestVisible} handle_ScheduleTestVisible={handle_ScheduleTestVisible}/>}
+            {ReviewPdfVisible && <ReviewPdf handle_ReviewPdfVisible={handle_ReviewPdfVisible}/>}
+            {PdfUploadVisible && <PdfUpload handle_PdfUploadVisible={handle_PdfUploadVisible}/>}
             <Footer />
         </div>
     );

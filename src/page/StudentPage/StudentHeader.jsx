@@ -9,7 +9,6 @@ const StudentHeader = () => {
                         <img className="rocket" src={require("../../assets/rocket.png")} alt="" />
                         <p>ALBy Study</p>
                     </div>
-                    <img className="rocket" src={require("../../assets/rocket.png")} alt="" />
                 </div>
                 <div className="right">
                     <ul>
