@@ -1,0 +1,26 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 86px;
+}
+
+.footer p{
+    text-align: center;
+}
+
+.f1{
+    font-weight: bolder;
+    font-size: 1rem;
+    margin-top: 4px;
+}
+
+.contact{
+    font-size: 0.7rem;
+    font-weight: lighter;
+}
+
+.copy_right{
+    font-size: 0.6rem;
+    margin-top: 10px;
+}

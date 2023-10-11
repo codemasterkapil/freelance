@@ -1,0 +1,18 @@
+
+.reason-paraCorrect{
+   background-color: rgb(153, 227, 153);
+   width:fit-content;
+   margin-right:10px;   
+   height: fit-content;
+}
+
+.reason-parawrong{
+    background-color: rgb(243, 153, 153);  
+    width:fit-content;   
+    margin-right:10px;
+    height: fit-content;
+}
+
+.reason-container{
+    display:flex;
+}

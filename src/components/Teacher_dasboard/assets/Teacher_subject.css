@@ -1,0 +1,70 @@
+.teacher_subject{
+    width: 100%;
+    background-color: #e4ffc1;
+    border: 2px solid #286345;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.tbox1{
+    width: 40%;
+}
+.box11{
+    display: flex;
+    padding-left: 10px;
+}
+
+
+.innerbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user{
+    display: flex;
+    width: 20px;
+    justify-content: space-between;
+}
+
+.box12{
+    display: flex;
+    padding-top: 15px;
+}
+
+.box12 p{
+    text-align: center;
+}
+
+
+.tbox2{
+    width: 170px;
+}
+
+.box_side{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.box_side p{
+    padding: 2px 5px;
+    height: 50%;
+}
+
+.material_button{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.material_button button{
+    border: none;
+    padding: 10px 20px;
+    background-color: #82c52a;
+    border-radius: 5px;
+    font-weight: bold;
+}

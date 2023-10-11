@@ -1,0 +1,23 @@
+.teacher_greet{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+    background-color: white;
+    padding: 5px 70px;
+    border-radius: 4px;
+}
+
+.teacher_greet img{
+    width: 100px;
+}
+
+.teacher_greet_left .p1{
+    font-size: 1.2rem;
+    padding-bottom: 3px;
+}
+
+.teacher_greet_left .p2{
+    font-size: 1.6rem;
+}

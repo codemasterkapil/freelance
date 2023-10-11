@@ -1,0 +1,21 @@
+.dashboard{
+    z-index: 1;
+}
+.teacher_left{
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #edfbfb;
+}
+
+.teacher_left p{
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.teacher_dashboard_left{
+    /* border: 1px solid red; */
+    width: 50%;
+}

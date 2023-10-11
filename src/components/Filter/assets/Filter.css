@@ -1,0 +1,44 @@
+.filter{
+    /* border: 2px solid black; */
+    width: 160px;
+    padding: 10px;
+}
+
+.search{
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-bottom: 15px;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    padding: 2px 2px;
+}
+.checkbox p{
+    font-size: 0.8rem;
+    font-weight: lighter;
+    padding: 0px 2px;
+}
+
+.schedule_block{
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: #ffd97b;
+    font-weight: bolder;
+}
+
+.add_test{
+    width: 100px;
+    margin-top: 40px;
+    margin-bottom: 4px;
+    padding: 4px 6px;
+    border: none;
+    /* background-color: #8e908c; */
+    font-weight: bolder;
+    border-radius: 5px;
+}

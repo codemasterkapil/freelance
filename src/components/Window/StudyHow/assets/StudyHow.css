@@ -1,0 +1,96 @@
+.studyhow_container_outer{
+    width: 90%;
+    opacity: 1;
+    height: 70vh;
+    background-color: #edfbfb;
+    padding: 20px;
+}
+
+.studyhow_heading{
+    background-color: white;
+    padding: 20px 15px;
+    width: 60%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin: auto;
+}
+
+.studyhow{
+    display: flex;
+    height: 100%;
+}
+
+.quiz_container{
+    width: 50%;
+    display: flex;
+    padding-top: 40px;
+    justify-content: center;
+    align-items: center;
+}
+.quiz{
+    width: 60%;
+    padding: 20px;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz button{
+    background-color: #a2ff00b0;
+    font-weight: bolder;
+    padding: 5px 10px;
+}
+
+.notes_container{
+    width: 50%;
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notes{
+    padding: 20px;
+    width: 60%;
+    background-color: white;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.notes button{
+    background-color: #07840797;
+    font-weight: bolder;
+}
+
+.studyhow_type{
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-size: 1rem;
+}
+
+.desc{
+    font-size: 0.8rem;
+    width: 80%;
+    text-align: center;
+}
+
+.studyhow button{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #ffd97b;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.studyhow button:hover{
+    cursor: pointer;
+}

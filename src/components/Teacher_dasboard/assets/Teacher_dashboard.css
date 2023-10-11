@@ -1,0 +1,50 @@
+.teacher_dashboard_left {
+    background-color: #edfbfb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+}
+
+.course_container {
+    width: 45%;
+    padding: 10px;
+}
+
+.teacher_courses_container {
+    width: 80%;
+    margin: auto;
+    height: 100%;
+}
+
+.teacher_course {
+    overflow-y: scroll;
+    /* border: 2px solid red; */
+    max-height: 70%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.teacher_course::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.teacher_course {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.add_button{
+    padding-top: 20px;
+    height: 30px;
+}
+
+.add_button button{
+    float: right;
+    padding: 8px 20px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 4px;
+}
