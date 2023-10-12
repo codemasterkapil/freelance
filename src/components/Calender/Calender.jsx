@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Filter from "../Filter/Filter";
 import "./assets/Calender.css";
+import events_rare from "../../assets/getEvents.jsx"
 
 const Calender = ({handle_popup, type}) => {
 
@@ -9,6 +10,12 @@ const Calender = ({handle_popup, type}) => {
   const [todayEventVis, setTodayEventVis] = useState(false);
   const eventref = useRef(null);
 
+  let date_today = new Date();
+  let firstDay = new Date(date_today.getFullYear(), date_today.getMonth(), 1);    
+  const blank_days1 = Array.from({ length: firstDay.getDay() }, (_, index) => index + 1);
+  const main_days = Array.from({ length: new Date(date_today.getFullYear(), date_today.getMonth(), 0).getDate()}, (_, index) => index + 1);
+  const blank_days2 = Array.from({ length: (35 - main_days.length - blank_days1.length) }, (_, index) => index + 1);
+
 
   const [check, setCheck] = useState(false);
   const [birthday, setBirthday] = useState(false);
@@ -16,22 +23,31 @@ const Calender = ({handle_popup, type}) => {
   const [tasks, setTasks] = useState(false);
 
 
+  const event_array = new Array(main_days.length).fill([]); 
+
   useEffect(() => {
     window.addEventListener("mousemove", (event) => {
       setMousePos({x: event.clientX, y: event.clientY});
     })
+
+
+    events_rare.responseObject.events.map((events) => {
+      const d = new Date(events.date);
+      const today_date = d.getDate();
+      const today_month = d.getMonth();
+      const today_year = d.getFullYear();
+      console.log(events.date, today_date, today_month, today_year, date_today.getMonth(), date_today.getFullYear());
+      
+      if(today_month === date_today.getMonth() && today_year === date_today.getFullYear()){
+        console.log(today_date)
+        event_array[today_date-1].push(events);
+      }
+    }) 
+    
+    console.log(event_array)
   }, [])
 
-  let date_today = new Date();
-  let firstDay = new Date(date_today.getFullYear(), date_today.getMonth(), 1);    
-  const blank_days1 = Array.from({ length: firstDay.getDay() }, (_, index) => index + 1);
-  const main_days = Array.from({ length: new Date(date_today.getFullYear(), date_today.getMonth(), 0).getDate()}, (_, index) => index + 1);
-  const blank_days2 = Array.from({ length: (35 - main_days.length - blank_days1.length) }, (_, index) => index + 1);
-
-  console.log(blank_days2)
-
-
-  const event_array = [["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["Hey man i am here", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], [], [], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"], ["complete freelence work today at any cost", "study computer networks", "start BTP work"]] 
+  // console.log(blank_days2)
 
   const day = (date) => {
     return (
@@ -54,12 +70,10 @@ const Calender = ({handle_popup, type}) => {
         <div className="show_events">
           <ul className="event_list">
             {event_array[date-1].map((curr_event) => {
-              return <li>{curr_event}</li>
+              return <li>{curr_event.title}</li>
             })}
           </ul>
         </div>
-
-        
       </div>
     );
   }
@@ -103,7 +117,7 @@ const Calender = ({handle_popup, type}) => {
             {todayEvent && 
               <ul>
                 {todayEvent.map((curr_event) => {
-                  return <li>{curr_event}</li>
+                  return <li>{curr_event.title}</li>
                 })}
               </ul>
             }

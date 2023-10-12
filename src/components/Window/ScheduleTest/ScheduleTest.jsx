@@ -10,7 +10,7 @@ const ScheduleTest = ({ScheduleTestVisible,handle_ScheduleTestVisible}) => {
             <Cross window_cut={handle_ScheduleTestVisible}/>
 
             <div className="schedule_test">
-                <FormDesc text1={"Add"} text2={"test date"}/>
+                <FormDesc text="Adding Test date"/>
 
 
                 <div className="add_course_form">
@@ -26,7 +26,7 @@ const ScheduleTest = ({ScheduleTestVisible,handle_ScheduleTestVisible}) => {
                         </div>
                         <div className="form_group fg2">
                         <div className="input">
-                                <label className="add_label" htmlFor="date">Date</label>
+                                <label className="add_label" htmlFor="date">Date *</label>
                                 <input type="date" id="date" placeholder="" />
                         </div>
                         <div className="input">
