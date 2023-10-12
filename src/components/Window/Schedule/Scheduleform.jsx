@@ -8,12 +8,19 @@ const Scheduleform = ({schedule_booked}) => {
 
   const [classValue, setClassValue] = useState('');
   const [timeValue, setTimeValue] = useState('');
-  const [dateValue, setDateValue] = useState();
+  const [dateValue, setDateValue] = useState('');
   const [focusValue, setFocusValue] = useState('');
+  const [error, setError] = useState(false);
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    // schedule_booked()
+    
+    if(timeValue==='' || classValue==='' || dateValue===''){
+      setError(true);
+    }else{
+      console.log('hello')
+      // api call
+    }
   }
 
   return (
@@ -29,6 +36,9 @@ const Scheduleform = ({schedule_booked}) => {
             className="input1"
             onChange={(e) => setClassValue(e.target.value)}
           />
+          {
+             error && <p className='error_bookingForm'>Class cannot be empty </p>
+          }
         </div>
 
         <div className="form_group">
@@ -37,7 +47,11 @@ const Scheduleform = ({schedule_booked}) => {
             type="text" 
             placeholder='30 minute'
             className="input1"
+            onChange={(e) => setTimeValue(e.target.value)}
           />
+           {
+             error && <p className='error_bookingForm'>Time cannot be empty </p>
+           }
         </div>
 
         <div className="form_group">
@@ -45,7 +59,11 @@ const Scheduleform = ({schedule_booked}) => {
           <input 
             type="date"
             className="input1"
+            onChange={(e) => setDateValue(e.target.value)}
           />
+           {
+             error && <p className='error_bookingForm'>Date cannot be empty </p>
+           }
         </div>
 
         <div className="form_group">
@@ -54,6 +72,7 @@ const Scheduleform = ({schedule_booked}) => {
             type="text" 
             placeholder='Review thermodynamics lesson 4 - go over new lesson'
             className="input2"
+            onChange={(e) => setFocusValue(e.target.value)}
           />
         </div>
 

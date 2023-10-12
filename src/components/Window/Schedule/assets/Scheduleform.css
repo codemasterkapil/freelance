@@ -38,7 +38,7 @@
 
 
 .submitbutton{
-    background-color: rgb(32, 108, 38);
+    background-color: rgb(77, 180, 85);
     color:white;
     cursor: pointer; 
     padding: 5px 30px;
@@ -46,4 +46,22 @@
     border-radius: 100px;
     display: flex;
     text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submitbutton:hover{
+    background-color: rgb(43, 131, 50);
+    color:white;
+    cursor: pointer; 
+    padding: 5px 30px;
+    border: none;
+    border-radius: 100px;
+    display: flex;
+    text-align: center;
+    transform: scale(1.1);
+}
+
+.error_bookingForm{
+    color:red;
+    padding-top: 5px;
 }
