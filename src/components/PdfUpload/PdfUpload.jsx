@@ -7,8 +7,6 @@ import { BsCloudUpload } from 'react-icons/bs';
 
 const PdfUpload = ({handle_PdfUploadVisible}) => {
 
-    const lesson = ["l1", "l2", "l3"];
-
     const [file, setFile] = useState(null);
     const [postContent, setPostContent] = useState('');
     const fileInputRef = useRef(null);
@@ -32,11 +30,8 @@ const PdfUpload = ({handle_PdfUploadVisible}) => {
         setFile(selectedFile);
     };
 
-
-
     const handleFileInputChange = (e) => {
         const selectedFile = e.target.files[0];
-
         if (selectedFile) {
             console.log('Selected file:', selectedFile);
         }
@@ -45,6 +40,49 @@ const PdfUpload = ({handle_PdfUploadVisible}) => {
     const handleButtonClick = () => {
         fileInputRef.current.click();
     };
+
+
+    const lesson_options = ["New Lesson", "l1", "l2", "l3"];
+    const [Lesson, setLesson] = useState("");
+    const [LessonFilled, setLessonFilled] = useState(false);
+    const [Unit, setUnit] = useState("");
+    const [UnitFilled, setUnitFilled] = useState(false);
+    const handle_unit = (val) => {
+        setUnit(val);
+    }
+    const [newUnit, setNewUnit] = useState("");
+    const [newUnitFilled, setNewUnitFilled] = useState(false);
+    const [date, setDate] = useState("");
+    const [dateFilled, setDateFilled] = useState(false);
+
+    const isAllFilled = () => {
+        let allFilled = true;
+        if(Lesson === ""){
+            setLessonFilled(true);
+            allFilled = false;
+        }
+        if(Unit === ""){
+            setUnitFilled(true);
+            allFilled = false;
+        }
+        if(newUnit === ""){
+            setNewUnitFilled(true);
+            allFilled = false;
+        }
+        if(date === ""){
+            setDateFilled(true);
+            allFilled = false;
+        }
+
+        return allFilled;
+    }
+
+    const generate_summary = () => {
+        if(isAllFilled()){
+
+        }
+    }
+
 
 
 
@@ -57,16 +95,7 @@ const PdfUpload = ({handle_PdfUploadVisible}) => {
                     <div className="upload">
                         <div className="file_upload_container">
                             <p>file upload *</p>
-                            {/* <div className="file_upload">
-                                <div className="uploader">
-                                    <AiOutlineCloudUpload className="uploader_img"/>
-                                    <p>Drag&Drop file here</p>
-                                    <p>or</p>
-                                    <input type="file" />
-                                </div>
-                            </div> */}
                             <div className="drag-drop-right">
-
                                 <div className='drag-drop-inner'
                                     onDragOver={handleDragOver}
                                     onDrop={handleDrop}
@@ -96,16 +125,42 @@ const PdfUpload = ({handle_PdfUploadVisible}) => {
                                     <input
                                         type="text"
                                         placeholder="Lesson 1 - Acid and Base"
+                                        value={Lesson}
+                                        onChange={(e) => setLesson(e.target.value)}
+                                        className={LessonFilled && "unFilled"}
                                     />
                                 </div>
                                 <div className="uload_from_group">
-                                    <Dropdown options={lesson} type={"Unit*"} />
+                                    <Dropdown 
+                                        options={lesson_options} 
+                                        type={"Unit"} 
+                                        handle_unit={handle_unit}
+                                        filled_type={UnitFilled}
+                                    />
                                 </div>
+                                {Unit === "New Lesson" && <div className="uload_from_group">
+                                    <p>New unit*</p>
+                                    <input
+                                        type="text"
+                                        placeholder="New Unit"
+                                        value={newUnit}
+                                        onChange={(e) => setNewUnit(e.target.value)}
+                                        className={newUnitFilled && "unFilled"}
+                                    />
+                                </div>}
                                 <div className="uload_from_group">
                                     <p>Lesson date*</p>
-                                    <input type="date" />
+                                    <input 
+                                        type="date" 
+                                        value={date}
+                                        onChange={(e) => setDate(e.target.value)}
+                                        className={dateFilled && "unFilled"}
+                                    />
                                 </div>
-                                <button className="generate_summary">Generate summar</button>
+                                <button 
+                                    className="generate_summary"
+                                    onClick={generate_summary}    
+                                >Generate summary</button>
                             </div>
                         </div>
                     </div>

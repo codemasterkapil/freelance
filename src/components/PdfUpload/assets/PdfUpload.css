@@ -111,3 +111,7 @@
 .generate_summary:hover{
     background-color: #f9c440;
 }
+
+.unFilled{
+    border: 1px solid red;
+}
