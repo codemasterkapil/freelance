@@ -37,7 +37,7 @@ const Scheduleform = ({schedule_booked}) => {
             onChange={(e) => setClassValue(e.target.value)}
           />
           {
-             error && <p className='error_bookingForm'>Class cannot be empty </p>
+             (error && (!classValue)) && <p className='error_bookingForm'>Class cannot be empty </p>
           }
         </div>
 
@@ -50,7 +50,7 @@ const Scheduleform = ({schedule_booked}) => {
             onChange={(e) => setTimeValue(e.target.value)}
           />
            {
-             error && <p className='error_bookingForm'>Time cannot be empty </p>
+             (error && (!timeValue)) && <p className='error_bookingForm'>Time cannot be empty </p>
            }
         </div>
 
@@ -62,7 +62,7 @@ const Scheduleform = ({schedule_booked}) => {
             onChange={(e) => setDateValue(e.target.value)}
           />
            {
-             error && <p className='error_bookingForm'>Date cannot be empty </p>
+            (error && (!dateValue)) && <p className='error_bookingForm'>Date cannot be empty </p>
            }
         </div>
 
