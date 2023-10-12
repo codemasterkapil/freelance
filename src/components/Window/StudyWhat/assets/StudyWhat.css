@@ -89,3 +89,7 @@
     align-items: center;
     margin-top: 30px;
 }
+
+.study_now:hover{
+    background-color: #f9c440;
+}

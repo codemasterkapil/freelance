@@ -1,16 +1,14 @@
 .outer-upload-container{
-    height:70%;
     width: 90%;
     background-color:  #daf6f6;
     display: flex;
     flex-direction: column;
-    padding: 30px 0px;
+    padding: 10px 0px;
 }
 
 .content-container{
     display:flex;
     padding:20px;
-    height:80%;
     width: 90%;
     margin: auto;
     justify-content: space-around;
@@ -19,45 +17,48 @@
 .left-content{
     background-color:white;
     width:30%;
-    height:100%;
+    padding: 10px;
     display:flex;
     flex-direction: column;
     align-items: center;
 }
 .right-content{
     background-color: white;
-    width:30%;
-    height:100%;
+    width: 40%;
+    padding: 10px;
     display:flex;
     flex-direction: column;
     align-items: center;
 }
 
 .header-p-review{
-    margin:1% 20%;
-    padding:20px 20px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    width: fit-content;
+    margin: auto;
     background-color: white;
-    font-size: 24px;
-    font-weight: bold;
+    padding: 20px;
 }
 
 .left-content-p{
     font-weight: bold;
-    padding :10px 0;
+    padding :10px 0px;
 }
 
 .right-content-p{
     font-weight: bold;
-    padding :10px 0;
+}
+.inner-pdf-show{
+    flex: 1;
 }
 
 .drag-drop-right{
     border:1px dashed gray;
     width:80%;
-    height:200px;
     display:flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
 }
 
 .drag-drop-inner{
@@ -65,13 +66,11 @@
     display:flex;
     flex-direction:column;
     align-items: center;
-    padding: 10px;
 }
 
 .dropper-icon{
-    padding-top:10px;
-    width:50px;
-    height:50px;
+    width:40px;
+    height:40px;
     color:gray;
 }
 
@@ -112,7 +111,6 @@
     font-weight: bold;
 }
 .insider-para{
-    font-size:20px;
     color:gray;
     margin:0;
     padding:4px;

@@ -1,7 +1,7 @@
 import "./assets/Teacher_subject.css";
 import { FiUsers } from 'react-icons/fi'
 
-const Teacher_subject = ({ course_data, handle_ReviewPdfVisible }) => {
+const Teacher_subject = ({ course_data, handle_PdfUploadVisible }) => {
     // console.log(course_data.course.instructor.title);
     return (
         <div className="teacher_subject">
@@ -40,7 +40,7 @@ const Teacher_subject = ({ course_data, handle_ReviewPdfVisible }) => {
                 </div>
                 <div className="material_button">
                     <button
-                        onClick={() => handle_ReviewPdfVisible(true)}
+                        onClick={() => handle_PdfUploadVisible(true)}
                     >Upload class material</button>
                 </div>
             </div>

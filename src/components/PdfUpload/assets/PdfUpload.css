@@ -107,3 +107,7 @@
     align-items: center;
     margin-top: 30px;
 }
+
+.generate_summary:hover{
+    background-color: #f9c440;
+}

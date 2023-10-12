@@ -4,7 +4,7 @@ import Teacher_subject from "../../components/Teacher_dasboard/Teacher_subject";
 import Calender from "../../components/Calender/Calender";
 import Filter from "../../components/Filter/Filter";
 
-const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible, teacher_data, handle_ReviewPdfVisible }) => {
+const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible, teacher_data, handle_ReviewPdfVisible, handle_PdfUploadVisible }) => {
     console.log(teacher_data)
     return (
         <div className="dashboard">
@@ -22,7 +22,7 @@ const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible
                     <div className="teacher_course">
                         {teacher_data &&
                             teacher_data.responseObject.courses.map((course) => {
-                                return <Teacher_subject course_data={course} handle_ReviewPdfVisible={handle_ReviewPdfVisible} />
+                                return <Teacher_subject course_data={course} handle_PdfUploadVisible={handle_PdfUploadVisible} />
                             })
                         }
                     </div>

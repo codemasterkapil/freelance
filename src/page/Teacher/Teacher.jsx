@@ -49,7 +49,7 @@ const Teacher = () => {
         <div className="teacher">
             {!dataFetch && <Loader text={"Please wait"}/>}
             <Teacher_header />
-            <Teacher_dashboard handle_ScheduleTestVisible={handle_ScheduleTestVisible} handle_AddcourseVisible={handle_AddcourseVisible} teacher_data={data} handle_ReviewPdfVisible={handle_ReviewPdfVisible}/>
+            <Teacher_dashboard handle_ScheduleTestVisible={handle_ScheduleTestVisible} handle_AddcourseVisible={handle_AddcourseVisible} teacher_data={data} handle_ReviewPdfVisible={handle_ReviewPdfVisible} handle_PdfUploadVisible={handle_PdfUploadVisible}/>
             {AddcourseVisible && <AddCourse handle_AddcourseVisible={handle_AddcourseVisible}/>}
             {ScheduleTestVisible && <ScheduleTest ScheduleTestVisible={ScheduleTestVisible} handle_ScheduleTestVisible={handle_ScheduleTestVisible}/>}
             {ReviewPdfVisible && <ReviewPdf handle_ReviewPdfVisible={handle_ReviewPdfVisible}/>}
