@@ -1,16 +1,13 @@
 .teacher_subject{
     width: 100%;
     background-color: #e4ffc1;
-    border: 2px solid #286345;
+    border: 2px solid;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     padding: 10px;
     border-radius: 5px;
     transition: background-color 0.5s ease;
-}
-.teacher_subject:hover{
-    background-color: #c6ea96;
 }
 
 .tbox1{

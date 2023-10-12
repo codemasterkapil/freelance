@@ -1,14 +1,14 @@
 import "./assets/Teacher_subject.css";
 import { FiUsers } from 'react-icons/fi'
 import {data,getCode} from '../../assets/ColorsData.js';
+import { useRef } from "react";
 
 const Teacher_subject = ({ course_data, handle_PdfUploadVisible }) => {
    
     let indCode=getCode(course_data.course.course);
 
     return (
-        <div className="teacher_subject" style={{backgroundColor:data[indCode].background}}>
-
+        <div className="teacher_subject" style={{backgroundColor:data[indCode].background, borderColor: data[indCode].smalltext}}>
             <div className="tbox1" >
                 <div className="box11" >
                     <div className="circle" style={{backgroundColor:data[indCode].circle}}></div>

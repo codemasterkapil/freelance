@@ -12,7 +12,7 @@ const Teacher_header = () => {
                 <div className="right">
                     <ul>
                         <li>Main menu</li>
-                        <li>Addn course</li>
+                        <li>Add course</li>
                         <li>Schedule test</li>
                         <li className="profile">
                             <img src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=" alt="" className="profile_img"/>

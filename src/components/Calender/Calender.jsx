@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Filter from "../Filter/Filter";
 import "./assets/Calender.css";
-import events_rare from "../../assets/getEvents.jsx"
+import events_rare from "../../assets/getEvents.js"
 
 const Calender = ({handle_popup, type}) => {
 
@@ -23,7 +23,7 @@ const Calender = ({handle_popup, type}) => {
   const [tasks, setTasks] = useState(false);
 
 
-  const event_array = new Array(main_days.length).fill([]); 
+  const [event_array, set_event_array] = useState(new Array(main_days.length).fill([])); 
 
   useEffect(() => {
     window.addEventListener("mousemove", (event) => {
@@ -39,7 +39,10 @@ const Calender = ({handle_popup, type}) => {
       console.log(events.date, today_date, today_month, today_year, date_today.getMonth(), date_today.getFullYear());
       
       if(today_month === date_today.getMonth() && today_year === date_today.getFullYear()){
-        console.log(today_date)
+        console.log(events)
+        if (!event_array[today_date-1]) {
+          event_array[today_date-1] = [];
+        }
         event_array[today_date-1].push(events);
       }
     }) 

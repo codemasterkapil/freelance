@@ -1,7 +1,7 @@
 .Bookingform_right{
     background-color: white;
     width:50%;
-    border-left:2px solid black;
+    border-left: 2px solid rgb(159, 155, 155);
 }
 
 
@@ -46,19 +46,18 @@
     cursor: pointer; 
     padding: 5px 30px;
     border: none;
-    border-radius: 100px;
+    border-radius: 10px;
     display: flex;
     text-align: center;
     transition: background-color 0.3s, transform 0.2s;
 }
 
 .submitbutton:hover{
-    background-color: #f6cb5e;
+    background-color: #f9c440;
     color:black;
     cursor: pointer; 
     padding: 5px 30px;
     border: none;
-    border-radius: 100px;
     display: flex;
     text-align: center;
     transform: scale(1.1);

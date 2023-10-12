@@ -9,7 +9,7 @@ const events_rare = {
             "isCompleted": false,
             "taskType": "Lesson",
             "category": 1,
-            "date": "2023-9-15T09:30:00Z"
+            "date": "2023-09-15T09:30:00Z"
         },
         {
             "eventId": 1,

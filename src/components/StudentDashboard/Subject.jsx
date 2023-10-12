@@ -6,7 +6,7 @@ const Subject = ({course_data}) => {
     let indCode=getCode(course_data.course.course);
 
     return (
-        <div className="subject" style={{backgroundColor:data[indCode].background}}>
+        <div className="subject" style={{backgroundColor:data[indCode].background, borderColor: data[indCode].smalltext}}>
             <div className="circle" style={{backgroundColor:data[indCode].circle}}></div>
             <div className="box1">
                 <p className="font1 centre">{course_data.course.course} {course_data.course.section}</p>

@@ -27,7 +27,7 @@
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: #ffd97b;
     font-weight: bolder;
 }
@@ -37,7 +37,7 @@
 
 .add_test{
     width: 100px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 4px;
     padding: 4px 6px;
     border: none;
