@@ -49,6 +49,7 @@ const PdfUpload = ({handle_PdfUploadVisible}) => {
     const [UnitFilled, setUnitFilled] = useState(false);
     const handle_unit = (val) => {
         setUnit(val);
+        setUnitFilled(false);
     }
     const [newUnit, setNewUnit] = useState("");
     const [newUnitFilled, setNewUnitFilled] = useState(false);
@@ -126,17 +127,20 @@ const PdfUpload = ({handle_PdfUploadVisible}) => {
                                         type="text"
                                         placeholder="Lesson 1 - Acid and Base"
                                         value={Lesson}
-                                        onChange={(e) => setLesson(e.target.value)}
-                                        className={LessonFilled && "unFilled"}
+                                        onChange={(e) => {
+                                            setLesson(e.target.value)
+                                            setLessonFilled(false);
+                                        }}
                                     />
+                                    {LessonFilled && <p className="unFilled">Lesson cann't be empty</p>}
                                 </div>
                                 <div className="uload_from_group">
                                     <Dropdown 
                                         options={lesson_options} 
                                         type={"Unit"} 
                                         handle_unit={handle_unit}
-                                        filled_type={UnitFilled}
                                     />
+                                    {UnitFilled && <p className="unFilled">Unit cann't be unselect</p>}
                                 </div>
                                 {Unit === "New Lesson" && <div className="uload_from_group">
                                     <p>New unit*</p>
@@ -144,18 +148,24 @@ const PdfUpload = ({handle_PdfUploadVisible}) => {
                                         type="text"
                                         placeholder="New Unit"
                                         value={newUnit}
-                                        onChange={(e) => setNewUnit(e.target.value)}
-                                        className={newUnitFilled && "unFilled"}
+                                        onChange={(e) => {
+                                            setNewUnit(e.target.value);
+                                            setNewUnitFilled(false);
+                                        }}
                                     />
+                                    {newUnitFilled && <p className="unFilled">New lesson cann't be unselect</p>}
                                 </div>}
                                 <div className="uload_from_group">
                                     <p>Lesson date*</p>
                                     <input 
                                         type="date" 
                                         value={date}
-                                        onChange={(e) => setDate(e.target.value)}
-                                        className={dateFilled && "unFilled"}
+                                        onChange={(e) => {
+                                            setDate(e.target.value);
+                                            setDateFilled(false);
+                                        }}
                                     />
+                                    {dateFilled && <p className="unFilled">Date cann't be unselect</p>}
                                 </div>
                                 <button 
                                     className="generate_summary"

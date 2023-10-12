@@ -14,13 +14,13 @@
 .upload_outer_container_background{
     width: 90%;
     background-color: #d4ffff;
-    padding: 60px 0px;
+    padding: 50px 0px;
 }
 
 .upload_container{
     background-color: white;
     width: 80%;
-    padding: 50px 50px;
+    padding: 30px 50px;
     margin: auto;
 }
 
@@ -113,5 +113,5 @@
 }
 
 .unFilled{
-    border: 1px solid red;
+    color: red;
 }

@@ -1,13 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import './assets/Dropdown.css';
 
-const Dropdown = ({ options, type, handle_unit, filled_type }) => {
+const Dropdown = ({ options, type, handle_unit }) => {
   const [selectedOption, setSelectedOption] = useState("select");
-  const [filled, setFilled] = useState(false);
-
-  useEffect(() => {
-    setFilled(filled_type);
-  }, []);
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -18,12 +13,9 @@ const Dropdown = ({ options, type, handle_unit, filled_type }) => {
     <div className="dropdown-container">
       <label htmlFor="dropdown" className="dropdown_type">{type}</label>
       <select
-        className={filled ? "dropdown unFilled" : "dropdown"}
+        className="dropdown"
         value={selectedOption}
-        onChange={(e) => {
-          handleOptionChange(e);
-          setFilled(false);
-        }}
+        onChange={handleOptionChange}
       >
         <option hidden value={"Select " + type}>
           Select {type.toLowerCase()}

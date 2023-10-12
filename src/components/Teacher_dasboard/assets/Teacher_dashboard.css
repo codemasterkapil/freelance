@@ -19,7 +19,6 @@
 
 .teacher_course {
     overflow-y: scroll;
-    /* border: 2px solid red; */
     max-height: 70%;
 }
 
