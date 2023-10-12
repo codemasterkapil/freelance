@@ -26,7 +26,7 @@ const ScheduleTest = ({ScheduleTestVisible,handle_ScheduleTestVisible}) => {
                         </div>
                         <div className="form_group fg2">
                         <div className="input">
-                                <label className="add_label" htmlFor="date">Description</label>
+                                <label className="add_label" htmlFor="date">Date *</label>
                                 <input type="date" id="date" placeholder="" />
                         </div>
                         <div className="input">

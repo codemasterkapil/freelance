@@ -82,6 +82,7 @@
 
 .add_course_form_inn{
     background-color: rgb(226, 236, 236);
+    border:1px solid black;
 }
 
 .add_course_form_error{
