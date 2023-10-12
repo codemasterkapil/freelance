@@ -1,4 +1,5 @@
 .schedule_test_container{
+    z-index:3;
     position: absolute;
     top: 0;
     left: 0px;

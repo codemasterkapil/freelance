@@ -1,14 +1,29 @@
 .add_course_desc{
-    width: 30%;
-    background-color: rgb(87, 188, 228);
+    width: 50%;
+    background-color: rgb(196, 228, 241);
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
+    padding:0 100px;
+    position: relative;
 }
 
-.add_course_desc p{
-    font-size: 2rem;
-    width: 70%;
-    color: rgb(50, 50, 50);
+.add_course_desc_p1{
+    font-size: 50px;
+    padding-bottom:30px;
+    padding-top:50px;
+}
+
+.add_course_desc_p2{
+    font-weight: bold;
+    padding-top:3px;
+    padding-left:14px;
+}
+
+.add_course_desc_img{
+    height:140px;
+    width:120px;
+    position: absolute;
+    bottom:-4px;
+    right:100px;
+    padding:0;
 }
