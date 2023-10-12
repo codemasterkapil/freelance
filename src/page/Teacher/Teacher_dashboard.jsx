@@ -9,7 +9,7 @@ const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible
     return (
         <div className="dashboard">
             <div className="teacher_dashboard_left">
-                <Calender handle_popup={handle_AddcourseVisible} type={"teacher"}/>
+                <Calender handle_popup={handle_ScheduleTestVisible} type={"teacher"}/>
             </div>
             <div className="course_container">
                 <div className="teacher_courses_container">

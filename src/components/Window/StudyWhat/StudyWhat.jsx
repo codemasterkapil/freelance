@@ -6,11 +6,32 @@ import { AiOutlineRight } from 'react-icons/ai';
 
 const StudyWhat = ({ handle_StudyWhatVisible, handle_StudyHowVisible }) => {
 
-  const [radioValue, setRadioValue] = useState(null);
+  const [material, setMaterial] = useState(null);
+  const [subject, setSubject] = useState(null);
+  const handle_subject = (val) => {
+    setSubject(val);
+    setSubjectType(true);
+  }
+  const [unit, setUnit] = useState(null);
+  const handle_unit = (val) => {
+    setUnit(val);
+    setUnitType(true);
+  }
+  const [lesson, setLesson] = useState(null);
+  const handle_lesson = (val) => {
+    setLesson(val);
+  }
 
-  const subjects = ["physics", "chemistry", "maths"]
-  const units = ['1', '2', '3', '4'];
-  const lesson = ["l1", "l2", "l3"];
+  const subject_option = ["physics", "chemistry", "maths"]
+  const unit_option = ['1', '2', '3', '4'];
+  const lesson_option = ["l1", "l2", "l3"];
+
+
+  const [matrialTyple, setMaterialType] = useState(false);
+  const [subjectType, setSubjectType] = useState(false);
+  const [unitType, setUnitType] = useState(false);
+  
+
 
   return (
     <div className="StudyWhat_container_outer">
@@ -24,16 +45,22 @@ const StudyWhat = ({ handle_StudyWhatVisible, handle_StudyHowVisible }) => {
             <div className="radio1">
               <input
                 type="radio"
-                checked={radioValue === "past"}
-                onChange={() => setRadioValue("past")}
+                checked={material === "past"}
+                onChange={() => {
+                  setMaterial("past")
+                  setMaterialType(true);
+                }}
               />
               <p className='radio-par'>Past Lesson</p>
             </div>
             <div className="radio1">
               <input
                 type="radio"
-                checked={radioValue === "new"}
-                onChange={() => setRadioValue("new")}
+                checked={material === "new"}
+                onChange={() => {
+                  setMaterial("new");
+                  setMaterialType(true);
+                }}
               />
               <p className='radio-par'>New Lesson</p>
             </div>
@@ -42,13 +69,28 @@ const StudyWhat = ({ handle_StudyWhatVisible, handle_StudyHowVisible }) => {
 
           <div className="select_subject">
             <div className="dd1">
-              <Dropdown options={subjects} type={"Subject"} />
+              <Dropdown 
+                options={subject_option} 
+                type={"Subject"} 
+                disable_val={matrialTyple}
+                handle_option={handle_subject}  
+              />
             </div>
             <div className="dd1">
-              <Dropdown options={units} type={"Unit"} />
+              <Dropdown 
+                options={unit_option} 
+                type={"Unit"} 
+                disable_val={subjectType}
+                handle_option={handle_unit}  
+              />
             </div>
             <div className="dd1">
-              <Dropdown options={lesson} type={"Lesson"} />
+              <Dropdown 
+                options={lesson_option} 
+                type={"Lesson"} 
+                disable_val={unitType}
+                handle_option={handle_lesson}  
+              />
             </div>
           </div>
 

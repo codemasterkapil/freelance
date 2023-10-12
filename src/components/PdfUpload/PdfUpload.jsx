@@ -138,7 +138,8 @@ const PdfUpload = ({handle_PdfUploadVisible}) => {
                                     <Dropdown 
                                         options={lesson_options} 
                                         type={"Unit"} 
-                                        handle_unit={handle_unit}
+                                        handle_option={handle_unit}
+                                        disable_val={true}
                                     />
                                     {UnitFilled && <p className="unFilled">Unit cann't be unselect</p>}
                                 </div>

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import './assets/Dropdown.css';
 
-const Dropdown = ({ options, type, handle_unit }) => {
+const Dropdown = ({ options, type, handle_option, disable_val }) => {
   const [selectedOption, setSelectedOption] = useState("select");
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
-    handle_unit(event.target.value);
+    handle_option(event.target.value);
   };
 
   return (
@@ -16,6 +16,7 @@ const Dropdown = ({ options, type, handle_unit }) => {
         className="dropdown"
         value={selectedOption}
         onChange={handleOptionChange}
+        disabled={!disable_val}
       >
         <option hidden value={"Select " + type}>
           Select {type.toLowerCase()}
