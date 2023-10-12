@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import './assets/Scheduleform.css'
 import { AiOutlineRight } from 'react-icons/ai';
 
-const Scheduleform = ({schedule_booked}) => {
+const Scheduleform = ({ schedule_booked }) => {
 
   const [classValue, setClassValue] = useState('');
   const [timeValue, setTimeValue] = useState('');
@@ -12,12 +12,12 @@ const Scheduleform = ({schedule_booked}) => {
   const [focusValue, setFocusValue] = useState('');
   const [error, setError] = useState(false);
 
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if(timeValue==='' || classValue==='' || dateValue===''){
+
+    if (timeValue === '' || classValue === '' || dateValue === '') {
       setError(true);
-    }else{
+    } else {
       console.log('hello')
       // api call
     }
@@ -25,60 +25,61 @@ const Scheduleform = ({schedule_booked}) => {
 
   return (
     <div className='Bookingform_right'>
-      <form className='form' onSubmit={(e)=>handleSubmit(e)}>
-        
+      <form className='form' onSubmit={(e) => handleSubmit(e)}>
+
         <div className="form_group">
           <p>Class *</p>
-          <input 
-            type="text" 
+          <input
+            type="text"
             placeholder='Chemistry'
             value={classValue}
             className="input1"
             onChange={(e) => setClassValue(e.target.value)}
           />
           {
-             (error && (!classValue)) && <p className='error_bookingForm'>Class cannot be empty </p>
+            (error && (!classValue)) && <p className='error_bookingForm'>Class cannot be empty </p>
           }
         </div>
 
         <div className="form_group">
           <p>Amount of time *</p>
-          <input 
-            type="text" 
+          <input
+            type="text"
             placeholder='30 minute'
             className="input1"
             onChange={(e) => setTimeValue(e.target.value)}
           />
-           {
-             (error && (!timeValue)) && <p className='error_bookingForm'>Time cannot be empty </p>
-           }
+          {
+            (error && (!timeValue)) && <p className='error_bookingForm'>Time cannot be empty </p>
+          }
         </div>
 
         <div className="form_group">
           <p>Date *</p>
-          <input 
+          <input
             type="date"
             className="input1"
             onChange={(e) => setDateValue(e.target.value)}
           />
-           {
+          {
             (error && (!dateValue)) && <p className='error_bookingForm'>Date cannot be empty </p>
-           }
+          }
         </div>
 
         <div className="form_group">
           <p>What do you want to focus on?</p>
-          <input 
-            type="text" 
+          <textarea
+            type="text"
             placeholder='Review thermodynamics lesson 4 - go over new lesson'
             className="input2"
             onChange={(e) => setFocusValue(e.target.value)}
-          />
+          >
+          </textarea>
         </div>
 
         <div className="button_container_schedule">
           <button type="submit" className='submitbutton' >Schedule
-          <AiOutlineRight></AiOutlineRight>
+            <AiOutlineRight></AiOutlineRight>
           </button>
         </div>
       </form>

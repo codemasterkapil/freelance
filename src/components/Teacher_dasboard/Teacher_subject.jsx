@@ -1,14 +1,17 @@
 import "./assets/Teacher_subject.css";
 import { FiUsers } from 'react-icons/fi'
+import {data,getCode} from '../../assets/ColorsData.js';
 
 const Teacher_subject = ({ course_data, handle_PdfUploadVisible }) => {
-    // console.log(course_data.course.instructor.title);
-    return (
-        <div className="teacher_subject">
+   
+    let indCode=getCode(course_data.course.course);
 
-            <div className="tbox1">
-                <div className="box11">
-                    <div className="circle"></div>
+    return (
+        <div className="teacher_subject" style={{backgroundColor:data[indCode].background}}>
+
+            <div className="tbox1" >
+                <div className="box11" >
+                    <div className="circle" style={{backgroundColor:data[indCode].circle}}></div>
                     <div>
                         <p className="font1">{course_data.course.course} {course_data.course.section}</p>
                         <div className="innerbox">
@@ -22,11 +25,11 @@ const Teacher_subject = ({ course_data, handle_PdfUploadVisible }) => {
                 </div>
                 <div className="box12">
                     <div>
-                        <p className="font2">Class interaction score</p>
+                        <p className="font2" style={{color:data[indCode].smalltext}}>Class interaction score</p>
                         <p className="font1 score">{course_data.course.metrics.interactScore}</p>
                     </div>
                     <div>
-                        <p className="font2">Class Quiz average score</p>
+                        <p className="font2" style={{color:data[indCode].smalltext}}>Class Quiz average score</p>
                         <p className="font1 score">{course_data.course.metrics.quizAvg}%</p>
                     </div>
                 </div>
@@ -34,12 +37,12 @@ const Teacher_subject = ({ course_data, handle_PdfUploadVisible }) => {
 
             <div className="tbox2">
                 <div className="box_side">
-                    <p className="font2">Unit covered: 3</p>
-                    <p className="font2">Unit to cover: 5</p>
-                    <p className="font2">Current unit: Acid and Base</p>
+                    <p className="font2" style={{color:data[indCode].smalltext}}>Unit covered: 3</p>
+                    <p className="font2" style={{color:data[indCode].smalltext}}>Unit to cover: 5</p>
+                    <p className="font2" style={{color:data[indCode].smalltext}}>Current unit: Acid and Base</p>
                 </div>
                 <div className="material_button">
-                    <button
+                    <button style={{backgroundColor:data[indCode].circle}}
                         onClick={() => handle_PdfUploadVisible(true)}
                     >Upload class material</button>
                 </div>
