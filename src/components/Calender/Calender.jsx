@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Filter from "../Filter/Filter";
 import "./assets/Calender.css";
 import events_rare from "../../assets/getEvents.js"
+import {data, getCode} from "../../assets/ColorsData.js"
 
 const Calender = ({handle_popup, type}) => {
 
@@ -127,7 +128,12 @@ const [event_array, set_event_array] = useState(Array.from({ length: mainDays.le
             {todayEvent && 
               <ul>
                 {todayEvent.map((curr_event) => {
-                  return <li>{curr_event.title}</li>
+                  return <li>
+                    <p
+                      style={{color: curr_event.taskType === "Test" ? "red" : data[curr_event.category-1].smalltext}}
+                    >{curr_event.title}</p>
+                    <p style={{fontSize: "0.7rem", paddingLeft: "10px", paddingBottom: "10px"}}>{curr_event.description}</p>
+                  </li>
                 })}
               </ul>
             }

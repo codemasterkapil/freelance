@@ -19,6 +19,16 @@ export const data = [
         circle:'#b74f4f',
         smalltext:'#62c7c7'
     },
+    {
+        background: '#F6D8DA',
+        circle:'#b74f4f',
+        smalltext:'blue'
+    },
+    {
+        background: '#F6D8DA',
+        circle:'#b74f4f',
+        smalltext:'#62c7c7'
+    },
 ]
 
 export const indexes={
