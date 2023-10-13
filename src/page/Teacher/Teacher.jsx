@@ -6,7 +6,7 @@ import AddCourse from "../../components/Window/AddCourse/AddCourse";
 import ScheduleTest from "../../components/Window/ScheduleTest/ScheduleTest";
 import { useState,useEffect } from "react";
 import axios from 'axios'
-import Loader from "../../components/Loader/Loder";
+import Loader from "../../components/Loader/Loader.jsx";
 import PdfUpload from "../../components/PdfUpload/PdfUpload";
 import ReviewPdf from '../../components/Window/ReviewPdf/ReviewPdf.jsx';
 

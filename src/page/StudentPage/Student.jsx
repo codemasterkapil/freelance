@@ -7,7 +7,7 @@ import StudyWhat from "../../components/Window/StudyWhat/StudyWhat.jsx"
 import Schedule from "../../components/Window/Schedule/Schedule";
 import axios from "axios";
 import '../../components/StudentDashboard/assets/Student.css';
-import Loader from "../../components/Loader/Loder";
+import Loader from "../../components/Loader/Loader";
 
 import { useEffect, useState } from "react";
 

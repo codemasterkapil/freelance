@@ -8,7 +8,11 @@ const Teacher_subject = ({ course_data, handle_PdfUploadVisible }) => {
     let indCode=getCode(course_data.course.course);
 
     return (
-        <div className="teacher_subject" style={{backgroundColor:data[indCode].background, borderColor: data[indCode].smalltext}}>
+        <div 
+            className="teacher_subject" style={{backgroundColor:data[indCode].background, borderColor: data[indCode].smalltext}}
+            onMouseEnter={(e) => e.currentTarget.style.filter="brightness(110%)"}
+            onMouseLeave={(e) => e.currentTarget.style.filter="brightness(100%)"}    
+        >
             <div className="tbox1" >
                 <div className="box11" >
                     <div className="circle" style={{backgroundColor:data[indCode].circle}}></div>

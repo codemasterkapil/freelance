@@ -6,6 +6,7 @@ import axios from 'axios';
 import Reason from './Reason';
 import Ticked from './Ticked';
 import rocket from '../../assets/rocket.png';
+import Loader from "../../components/Loader/Loader.jsx"
 
 const Quiz = () => {
 
@@ -14,6 +15,7 @@ const Quiz = () => {
     const [answer, setAnswer] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState({});
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const get_data = async () => {
@@ -21,6 +23,7 @@ const Quiz = () => {
                 const response = await axios.get('https://portal-9bua.onrender.com/quizinit');
                 setQuestions(response.data.responseObbject.qsets);
                 setTotal(response.data.responseObbject.results);
+                setLoading(false);
             } catch (error) {
                 console.log('error while fetching quiz questions');
             }
@@ -78,6 +81,7 @@ const Quiz = () => {
 
     return (
         <div className='quiz_page'>
+            {loading && <Loader text={"please wait while qustion are loading"}/>}
             <Header />
             <div className='quiz-container'>
                 <div className="Quiz-innercontainer">
@@ -132,7 +136,7 @@ const Quiz = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
