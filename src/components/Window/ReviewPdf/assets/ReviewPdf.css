@@ -1,0 +1,146 @@
+.outer-upload-container{
+    width: 90%;
+    background-color:  #daf6f6;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+.content-container{
+    display:flex;
+    padding:20px;
+    width: 90%;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.left-content{
+    background-color:white;
+    width:30%;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right-content{
+    background-color: white;
+    width: 40%;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-p-review{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    width: fit-content;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+}
+
+.left-content-p{
+    font-weight: bold;
+    padding :10px 0px;
+}
+
+.right-content-p{
+    font-weight: bold;
+}
+.inner-pdf-show{
+    flex: 1;
+}
+
+.drag-drop-right{
+    border:1px dashed gray;
+    width:80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.drag-drop-inner{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.dropper-icon{
+    width:40px;
+    height:40px;
+    color:gray;
+}
+
+.drag-drop-input{
+  width:200px;
+  height:50px;
+}
+
+.message-stu{
+    width:80%;
+}
+
+.right-msg-in{
+  
+  height:70px;
+  width:100%;
+  padding:10px;
+  border: 1px solid gray;
+  overflow: auto;
+  resize: none;
+}
+
+.right-msg-p{
+    font-size: 13px;
+    font-weight: bold;
+    margin:0;
+    padding-top:20px;
+    padding-bottom:10px;
+}
+
+.uploader-btn{
+    background-color: rgb(230, 215, 113);
+    text-decoration: none;
+    border:none;
+    border-radius:10px;
+    padding:10px 20px;
+    margin-top:10px;
+    font-weight: bold;
+}
+.insider-para{
+    color:gray;
+    margin:0;
+    padding:4px;
+}
+
+.file-input-button{
+    background-color: white;
+    border: 2px solid rgb(66, 207, 226);
+    padding:10px;
+    color:rgb(54, 190, 208);
+    font-weight: bold;
+}
+
+.file-input-container-b{
+    padding:10px 0px;
+}
+
+.file-input-button:hover{
+    background-color: white;
+    border: 2px solid rgb(66, 207, 226);
+    padding:10px;
+    color:rgb(54, 190, 208);
+    font-weight: bold;
+    background-color:rgb(179, 255, 0);
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.img-rocket{
+    width:40px;
+    height:50px;
+    margin:5px 10px;
+}

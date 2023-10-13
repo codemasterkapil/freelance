@@ -27,18 +27,23 @@
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: #ffd97b;
     font-weight: bolder;
+}
+.schedule_block:hover{
+    background-color: #f9c440;
 }
 
 .add_test{
     width: 100px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 4px;
     padding: 4px 6px;
     border: none;
-    /* background-color: #8e908c; */
     font-weight: bolder;
     border-radius: 5px;
+}
+.add_test:hover{
+    background-color: rgb(180, 179, 179);
 }

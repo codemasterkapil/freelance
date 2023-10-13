@@ -4,12 +4,12 @@ import Teacher_subject from "../../components/Teacher_dasboard/Teacher_subject";
 import Calender from "../../components/Calender/Calender";
 import Filter from "../../components/Filter/Filter";
 
-const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible, teacher_data }) => {
+const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible, teacher_data, handle_ReviewPdfVisible, handle_PdfUploadVisible }) => {
     console.log(teacher_data)
     return (
         <div className="dashboard">
             <div className="teacher_dashboard_left">
-                <Calender handle_popup={handle_AddcourseVisible} type={"teacher"}/>
+                <Calender handle_popup={handle_ScheduleTestVisible} type={"teacher"}/>
             </div>
             <div className="course_container">
                 <div className="teacher_courses_container">
@@ -22,7 +22,7 @@ const Teacher_dashboard = ({ handle_ScheduleTestVisible, handle_AddcourseVisible
                     <div className="teacher_course">
                         {teacher_data &&
                             teacher_data.responseObject.courses.map((course) => {
-                                return <Teacher_subject course_data={course} />
+                                return <Teacher_subject course_data={course} handle_PdfUploadVisible={handle_PdfUploadVisible} />
                             })
                         }
                     </div>
