@@ -16,3 +16,9 @@
 .reason-container{
     display:flex;
 }
+
+.reason-container-p2{
+    font-size: 0.8rem;
+    color:rgb(95, 92, 92);
+    font-style: italic;
+}
