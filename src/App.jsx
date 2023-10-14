@@ -5,6 +5,7 @@ import Student from "./page/StudentPage/Student";
 import Teacher from "./page/Teacher/Teacher.jsx"
 import Quiz from './page/Quiz/Quiz';
 import {useState} from "react";
+import Login from './page/Login/Login.jsx';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/" exact element={<Student />} />
       <Route path="/quiz" element={<Quiz/>} />
       <Route path="/teacher" element={<Teacher/>} />
+      <Route path="/login" element={<Login/>} />
     </Routes>
   </BrowserRouter>
   );

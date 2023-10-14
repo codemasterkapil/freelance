@@ -116,17 +116,6 @@ const Quiz = () => {
 
                                                 {submitted && <Reason option={answer[question.questionId][optionKey]} />}
                                             </div>
-                                            // <label className='quiz_label' key={optionKey}>
-                                            //     <input
-                                            //         type="radio"
-                                            //         name={`question${question.questionId}`}
-                                            //         value={optionKey}
-                                            //         checked={selectedOptions[question.questionId] === optionKey}
-                                            //         onChange={() => handleOptionChange(question.questionId, optionKey)}
-                                            //     />
-                                            //     {optionValue}
-                                            //     {submitted && <Reason option={answer[question.questionId][optionKey]} />}
-                                            // </label>
                                         ))}
                                     </div>
                                 </div>

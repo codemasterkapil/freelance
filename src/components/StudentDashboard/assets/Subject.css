@@ -11,6 +11,19 @@
     border-radius: 5px;
 }
 
+.subject:hover{
+    width: 100%;
+    background-color: #95cd4d;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: fit-content;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
 .font1{
     font-weight: bolder;
 }
