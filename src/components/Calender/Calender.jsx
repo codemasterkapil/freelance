@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import Filter from "../Filter/Filter";
 import "./assets/Calender.css";
-import events_rare from "../../assets/getEvents.js"
-import {data, getCode} from "../../assets/ColorsData.js"
+import { data, getCode } from "../../assets/ColorsData.js"
 
-const Calender = ({handle_popup, type}) => {
+const Calender = ({ handle_popup, type, events_rare }) => {
 
-  const [mousePos, setMousePos] = useState({x:0, y:0});
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [todayEvent, setTodayEvent] = useState([]);
   const [todayEventVis, setTodayEventVis] = useState(false);
   const eventref = useRef(null);
@@ -17,56 +16,75 @@ const Calender = ({handle_popup, type}) => {
   const [tasks, setTasks] = useState(false);
 
   let dateToday = new Date();
-  let firstDay = new Date(dateToday.getFullYear(), dateToday.getMonth(), 1);    
+  let firstDay = new Date(dateToday.getFullYear(), dateToday.getMonth(), 1);
   const beforeExtra = Array.from({ length: firstDay.getDay() }, (_, index) => index + 1);
-  const mainDays = Array.from({ length: new Date(dateToday.getFullYear(), dateToday.getMonth(), 0).getDate()}, (_, index) => index + 1);
+  const mainDays = Array.from({ length: new Date(dateToday.getFullYear(), dateToday.getMonth(), 0).getDate() }, (_, index) => index + 1);
   const afterExtra = Array.from({ length: (35 - mainDays.length - beforeExtra.length) }, (_, index) => index + 1);
 
 
-const [event_array, set_event_array] = useState(Array.from({ length: mainDays.length}, () => new Array()));
+  const [event_array, set_event_array] = useState(Array.from({ length: mainDays.length }, () => new Array()));
 
-  
+
 
   useEffect(() => {
     window.addEventListener("mousemove", (event) => {
-      setMousePos({x: event.clientX, y: event.clientY});
+      setMousePos({ x: event.clientX, y: event.clientY });
     })
-
-    events_rare.responseObject.events.map((event) => {
+    
+    events_rare.responseObject.result.Events.map((event) => {
       const d = new Date(event.date);
       const today_date = d.getDate();
       const today_month = d.getMonth();
       const today_year = d.getFullYear();
-      console.log(event.date, today_date, today_month, today_year, dateToday.getMonth(), dateToday.getFullYear());
-      
-      if(today_month === dateToday.getMonth() && today_year === dateToday.getFullYear()){
-        console.log(typeof(today_date))
+
+      if (today_month === dateToday.getMonth() && today_year === dateToday.getFullYear()) {
         let copy = event_array;
-        console.log(copy);
-        copy[today_date-1].push(event);
-        console.log(copy[today_date-1]);
+        copy[today_date - 1].push(event);
         set_event_array(copy);
       }
-    }) 
+    })
 
-    
-    console.log(event_array)
+    events_rare.responseObject.result.Tests.map((event) => {
+      const d = new Date(event.date);
+      console.log(d);
+      const today_date = d.getDate();
+      const today_month = d.getMonth();
+      const today_year = d.getFullYear();
+
+      if (today_month === dateToday.getMonth() && today_year === dateToday.getFullYear()) {
+        let copy = event_array;
+        copy[today_date - 1].push(event);
+        set_event_array(copy);
+      }
+    })
+
+    events_rare.responseObject.result.Activities.map((event) => {
+      const d = new Date(event.date);
+      const today_date = d.getDate();
+      const today_month = d.getMonth();
+      const today_year = d.getFullYear();
+
+      if (today_month === dateToday.getMonth() && today_year === dateToday.getFullYear()) {
+        let copy = event_array;
+        copy[today_date - 1].push(event);
+        set_event_array(copy);
+      }
+    })
   }, [])
 
-  // console.log(blank_days2)
 
   const day = (date) => {
     return (
-      <div 
+      <div
         className="day"
         onMouseOver={() => {
-            setTodayEvent(event_array[date-1]);
-            setTodayEventVis(true);
+          setTodayEvent(event_array[date - 1]);
+          setTodayEventVis(true);
 
-            if(eventref.current !== null){
-              eventref.current.style.left = mousePos.x - 6 + "px";
-              eventref.current.style.top = mousePos.y - 130 + "px";
-            }
+          if (eventref.current !== null) {
+            eventref.current.style.left = mousePos.x - 6 + "px";
+            eventref.current.style.top = mousePos.y - 130 + "px";
+          }
         }}
         onMouseOut={() => {
           setTodayEventVis(false);
@@ -75,7 +93,7 @@ const [event_array, set_event_array] = useState(Array.from({ length: mainDays.le
         <p className="date">{date}</p>
         <div className="show_events">
           <ul className="event_list">
-            {event_array[date-1].map((curr_event) => {
+            {event_array[date - 1].map((curr_event) => {
               return <li>{curr_event.title}</li>
             })}
           </ul>
@@ -105,7 +123,7 @@ const [event_array, set_event_array] = useState(Array.from({ length: mainDays.le
 
         {
           mainDays.map((number) => {
-            return day(number, event_array[number-1]);
+            return day(number, event_array[number - 1]);
           })
         }
 
@@ -116,23 +134,23 @@ const [event_array, set_event_array] = useState(Array.from({ length: mainDays.le
         }
 
       </div>
-      
-      <div 
-        className="event_container" 
+
+      <div
+        className="event_container"
         ref={eventref}
         onMouseEnter={() => setTodayEventVis(true)}
         onMouseLeave={() => setTodayEventVis(false)}
       >
-        {todayEventVis && 
+        {todayEventVis &&
           <div className="events">
-            {todayEvent && 
+            {todayEvent &&
               <ul>
                 {todayEvent.map((curr_event) => {
                   return <li>
                     <p
-                      style={{color: curr_event.taskType === "Test" ? "red" : data[curr_event.category-1].smalltext}}
+                      style={{ color: curr_event.taskType === "Test" ? "red" : data[curr_event.category - 1].smalltext }}
                     >{curr_event.title}</p>
-                    <p style={{fontSize: "0.7rem", paddingLeft: "10px", paddingBottom: "10px"}}>{curr_event.description}</p>
+                    <p style={{ fontSize: "0.7rem", paddingLeft: "10px", paddingBottom: "10px" }}>{curr_event.description}</p>
                   </li>
                 })}
               </ul>
@@ -140,8 +158,8 @@ const [event_array, set_event_array] = useState(Array.from({ length: mainDays.le
           </div>
         }
       </div>
-        
-      <img className="puka" src={require("../../assets/pucka.png")} alt="" 
+
+      <img className="puka" src={require("../../assets/pucka.png")} alt=""
       />
     </div>
   );

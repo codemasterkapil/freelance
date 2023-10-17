@@ -4,24 +4,45 @@ import Footer from "../StudentPage/Footer";
 import Teacher_dashboard from "./Teacher_dashboard";
 import AddCourse from "../../components/Window/AddCourse/AddCourse";
 import ScheduleTest from "../../components/Window/ScheduleTest/ScheduleTest";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import axios from 'axios'
 import Loader from "../../components/Loader/Loader.jsx";
 import PdfUpload from "../../components/PdfUpload/PdfUpload";
 import ReviewPdf from '../../components/Window/ReviewPdf/ReviewPdf.jsx';
+import { AccountContext } from "../../Context/AccountProvider";
+import Popup from "../../components/Popup/Popup";
+import { useNavigate } from "react-router-dom";
 
 const Teacher = () => {
 
-     const [data, setData] = useState(null)
-     const [dataFetch, setDataFetch] = useState(false);
+     const {setTeacherCourses} = useContext(AccountContext);
+     const {loading, setLoading} = useContext(AccountContext);
+     const {loadingMessage, setLoadingMessage} = useContext(AccountContext);
+     const {popUp} = useContext(AccountContext)
+     const {teacher, setTeacher} = useContext(AccountContext);
+
+     const navigate = useNavigate();
 
      useEffect(() => {
-        axios.get("https://portal-9bua.onrender.com/Dashboard")
-        .then(Response => {
-            setData(Response.data)
-            setDataFetch(true);
-        })
-        .catch(err => console.log(err))
+        if(window.sessionStorage.getItem("ALBy_teacher_token") === null){
+            navigate("/login");
+        }
+        else{
+            setTeacher(JSON.parse(window.sessionStorage.getItem("ALBy_teacher_token")));
+            setLoading(true);
+            setLoadingMessage("please wait");
+            axios.get("http://54.232.139.4:5000/api/teacher/dashboard",{
+                headers: {
+                    "Authorization": `Bearer ${JSON.parse(window.sessionStorage.getItem("ALBy_teacher_token")).token}`,
+                    'Content-Type': 'application/json', 
+                }
+            })
+            .then(Response => {
+                setTeacherCourses(Response.data.responseObject.courses);
+                setLoading(false);
+            })
+            .catch(err => console.log(err))
+        }
       }, []);
       
 
@@ -47,9 +68,10 @@ const Teacher = () => {
 
     return(
         <div className="teacher">
-            {!dataFetch && <Loader text={"Please wait"}/>}
+            {popUp && <Popup />}
+            {loading && <Loader text={loadingMessage}/>}
             <Teacher_header />
-            <Teacher_dashboard handle_ScheduleTestVisible={handle_ScheduleTestVisible} handle_AddcourseVisible={handle_AddcourseVisible} teacher_data={data} handle_ReviewPdfVisible={handle_ReviewPdfVisible} handle_PdfUploadVisible={handle_PdfUploadVisible}/>
+            <Teacher_dashboard handle_ScheduleTestVisible={handle_ScheduleTestVisible} handle_AddcourseVisible={handle_AddcourseVisible} handle_ReviewPdfVisible={handle_ReviewPdfVisible} handle_PdfUploadVisible={handle_PdfUploadVisible}/>
             {AddcourseVisible && <AddCourse handle_AddcourseVisible={handle_AddcourseVisible}/>}
             {ScheduleTestVisible && <ScheduleTest ScheduleTestVisible={ScheduleTestVisible} handle_ScheduleTestVisible={handle_ScheduleTestVisible}/>}
             {ReviewPdfVisible && <ReviewPdf handle_ReviewPdfVisible={handle_ReviewPdfVisible}/>}

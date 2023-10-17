@@ -4,8 +4,8 @@ import {data,getCode} from '../../assets/ColorsData.js';
 import { useRef } from "react";
 
 const Teacher_subject = ({ course_data, handle_PdfUploadVisible }) => {
-   
-    let indCode=getCode(course_data.course.course);
+    
+    let indCode=getCode((course_data.course.course).toLowerCase());
 
     return (
         <div 

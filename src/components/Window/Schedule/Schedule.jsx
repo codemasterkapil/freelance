@@ -10,7 +10,7 @@ const Schedule = ({handle_ScheduleVisible}) => {
       <Cross window_cut={handle_ScheduleVisible}/>
       <div className='component'>
           <Bookingcontent></Bookingcontent>
-          <Bookingform></Bookingform>      
+          <Bookingform handle_ScheduleVisible={handle_ScheduleVisible}/>   
       </div>
     </div>
   )

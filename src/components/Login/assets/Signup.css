@@ -1,0 +1,32 @@
+.input_row{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.signup_input1{
+    width: 49%;
+    margin-bottom: 15px;
+}
+.signup_input1 p{
+    font-size: 0.6rem;
+    padding-bottom: 2px;
+}
+
+.signup_input1 input{
+    width: 100%;
+}
+
+.signup_input{
+    width: 70%;
+    margin-bottom:15px;
+}
+
+.signup_input input{
+    width: 100%;
+}
+
+.signup_input p{
+    font-size: 0.6rem;
+    padding-bottom: 2px;
+}

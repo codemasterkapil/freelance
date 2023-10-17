@@ -32,20 +32,21 @@ export const data = [
 ]
 
 export const indexes={
-    Chemistry:0,
-    Math:1,
-    Biology:2,
-    Economics:3,
+    chemistry:0,
+    math:1,
+    biology:2,
+    economics:3,
 }
 
 export const getCode=(str)=>{
-    if(str.includes("Math")){
+    if(str.includes("math")){
         return 1;
-    }else if(str.includes("Chemistry")){
+    }else if(str.includes("chemistry")){
         return 0;
-    }else if(str.includes("Biology")){
+    }else if(str.includes("biology")){
         return 2;
-    }else if(str.includes("Economics")){
+    }else if(str.includes("economics")){
         return 3;
     }
+    else return 0;
 }

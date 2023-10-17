@@ -2,6 +2,7 @@
     background-color: white;
     width:50%;
     border-left: 2px solid rgb(159, 155, 155);
+    padding: 20px;
 }
 
 
@@ -18,11 +19,14 @@
     padding-bottom: 20px;
 }
 .form_group p{
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     padding-bottom: 2px;
 }
 .input1{
     padding: 5px;
+    width: 70%;
+}
+.dd{
     width: 70%;
 }
 

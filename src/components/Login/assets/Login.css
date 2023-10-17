@@ -1,7 +1,14 @@
+.auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 .login_container{
     display:flex;
-    height:60vh;
-    
+    /* height:60vh; */
+    width: 90vw;
+    box-shadow: 1px 1px 40px grey;
 }
 
 .login_container_rocket{
@@ -10,9 +17,12 @@
 }
 
 .login_container_pucka{
-    height:90px;
+    height:110px;
     width:90px;
     transform: rotateY(180deg);
+}
+.login_container_inner21{
+    padding-top: 20px;
 }
 
 .login_container_drugs{
@@ -27,15 +37,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  padding-top: 80px;
 }
 
 .login_container_form{
     width:50%;
+    padding: 80pxs;
 }
 .login_container_inner2{
     display:flex;
-    align-items: center;
+    padding-top: 30px;
+}
 
+.login_container_inner123{
+    padding-bottom: 40px;
 }
 
 .login_container_inner1{
@@ -56,14 +71,12 @@
     font-size: 0.7rem;
 }
 
-.login_container_inner123{
-
-}
-
 .login_container_form{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .login_container_form_inner{
@@ -104,10 +117,11 @@
 }
 
 .login_container_form_input{
-    width:60%;
-    margin-bottom:15px;
-    background-color: rgb(247, 244, 244);
-    padding:3px;
+    width:70%;
+    /* background-color: rgb(247, 244, 244); */
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 .login_container_btn{
@@ -115,10 +129,12 @@
     font-weight:bold;
     padding:2px 20px; 
     border-radius: 5px;
+    margin-right: 5px;
     border:none;
-    float:right;
 }
 
 .login_container_btn_div{
-    width:60%;
+    width:70%;
+    display: flex;
+    justify-content: flex-end;
 }

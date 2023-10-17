@@ -33,3 +33,9 @@ button:hover {
   height: 50px;
   margin-bottom: 20px;
 }
+
+.required{
+  font-size: 0.6rem;
+  color: red;
+  font-weight: bolder;
+}

@@ -1,6 +1,12 @@
 import "../../components/StudentHeader/assets/StudentHeader.css"
+import { AccountContext } from "../../Context/AccountProvider";
+import {useContext,useState} from 'react';
+
 
 const StudentHeader = () => {
+
+    const {person} = useContext(AccountContext);
+    
     return (
         <div className="header">
             <div className="header_container">
@@ -17,7 +23,7 @@ const StudentHeader = () => {
                         <li>Study now</li>
                         <li className="profile">
                             <img src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=" alt="" className="profile_img"/>
-                            Vivan
+                            {person && person.name}
                         </li>
                     </ul>
                 </div>

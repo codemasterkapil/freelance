@@ -3,23 +3,69 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './assets/Scheduleform.css'
 import { AiOutlineRight } from 'react-icons/ai';
+import { AccountContext } from '../../../Context/AccountProvider';
+import { useContext } from 'react';
+import Dropdown from '../StudyWhat/Dropdown';
+import axios from "axios";
 
-const Scheduleform = ({ schedule_booked }) => {
+const Scheduleform = ({ handle_ScheduleVisible }) => {
 
-  const [classValue, setClassValue] = useState('');
-  const [timeValue, setTimeValue] = useState('');
-  const [dateValue, setDateValue] = useState('');
-  const [focusValue, setFocusValue] = useState('');
+  const [course, setCourse] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [timeValue, setTimeValue] = useState(null);
+  const [dateValue, setDateValue] = useState(null);
+  const [description, setDescription] = useState(null);
   const [error, setError] = useState(false);
+  const {setLoading, setLoadingMessage, setPopUp, setPopUpType, setPopUpMessage, person, studentCourses} = useContext(AccountContext);
+
+  const courses_type = [];
+  const course_id = new Map();
+  for(let i=0; i<studentCourses.length; i++){
+    courses_type.push(studentCourses[i].course.course);
+    course_id.set(studentCourses[i].course.course, studentCourses[i].courseId);
+  }
+  const handle_courses = (val) => {
+    setCourse(val);
+  } 
+
+  console.log(studentCourses);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (timeValue === '' || classValue === '' || dateValue === '') {
+    if (!course || !title || !timeValue || !dateValue) {
       setError(true);
     } else {
-      console.log('hello')
-      // api call
+      setLoading(true);
+      console.log(typeof(timeValue));
+      setLoadingMessage("Please wait Block in sheduling");
+      axios.post("http://54.232.139.4:5000/api/calender/createStudentEvent", {
+          "title": title,
+          "description": description,
+          "isCompleted": false,
+          "courseId": course_id.get(course),
+          "date": dateValue,
+          "amountOfTime": timeValue
+      }, {
+        headers: {
+          "Authorization": `Bearer ${JSON.parse(window.sessionStorage.getItem("ALBy_student_token")).token}`,
+          "content-Type": 'application/json'
+        }
+      })
+      .then(res => {
+        console.log(res);
+        setLoading(false);
+        handle_ScheduleVisible(false);
+        setPopUp(true);
+        setPopUpMessage("Block successfully scheduled");
+        setPopUpType("success");
+      })
+      .catch(err => {
+        console.log(err);
+        setLoading(false);
+        setPopUp(true);
+        setPopUpMessage("Block scheduling failed");
+        setPopUpType("");
+      })
     }
   }
 
@@ -28,25 +74,40 @@ const Scheduleform = ({ schedule_booked }) => {
       <form className='form' onSubmit={(e) => handleSubmit(e)}>
 
         <div className="form_group">
-          <p>Class *</p>
+          <div className="dd">
+            <Dropdown 
+              options={courses_type}
+              handle_option={handle_courses}
+              type={"course"}
+              disable_val={true}
+            />
+          </div>
+          {
+            (error && (!course)) && <p className='error_bookingForm'>course cannot be empty </p>
+          }
+        </div>
+
+        <div className="form_group">
+          <p>Title *</p>
           <input
             type="text"
-            placeholder='Chemistry'
-            value={classValue}
             className="input1"
-            onChange={(e) => setClassValue(e.target.value)}
+            placeholder='title'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
           {
-            (error && (!classValue)) && <p className='error_bookingForm'>Class cannot be empty </p>
+            (error && (!title)) && <p className='error_bookingForm'>Title cannot be empty </p>
           }
         </div>
 
         <div className="form_group">
           <p>Amount of time *</p>
           <input
-            type="text"
+            type="number"
             placeholder='30 minute'
             className="input1"
+            value={timeValue}
             onChange={(e) => setTimeValue(e.target.value)}
           />
           {
@@ -54,11 +115,13 @@ const Scheduleform = ({ schedule_booked }) => {
           }
         </div>
 
+
         <div className="form_group">
           <p>Date *</p>
           <input
             type="date"
             className="input1"
+            value={dateValue}
             onChange={(e) => setDateValue(e.target.value)}
           />
           {
@@ -67,12 +130,13 @@ const Scheduleform = ({ schedule_booked }) => {
         </div>
 
         <div className="form_group">
-          <p>What do you want to focus on?</p>
+          <p>Description</p>
           <textarea
             type="text"
             placeholder='Review thermodynamics lesson 4 - go over new lesson'
             className="input2"
-            onChange={(e) => setFocusValue(e.target.value)}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           >
           </textarea>
         </div>
